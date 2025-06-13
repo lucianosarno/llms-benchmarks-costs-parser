@@ -77,26 +77,32 @@ The core output of the script is the benchmarks_data.json file. This file contai
 You can view the latest version of this file directly on GitHub or access its raw content via:
 
 https://raw.githubusercontent.com/lucianosarno/llms-benchmarks-costs-parser/main/benchmarks_data.json
-Data Visualization
+
+## Data Visualization
 
 The data collected by this script is used to power interactive dashboards hosted on Zoho Analytics, providing visual insights into LLM performance across benchmarks and providers.
-LLM Providers vs. Benchmarks vs. Cost
+
+### LLM Providers vs. Benchmarks vs. Cost
+https://analytics.zoho.com/open-view/2732937000006457007
 
 This chart aggregates data by provider, showing average costs across different benchmarks.
-<iframe frameborder=0 width="800" height="600" src="https://analytics.zoho.com/open-view/2732937000006457007"></iframe>
-Individual LLM Models vs. Benchmarks vs. Cost
 
+### Individual LLM Models vs. Benchmarks vs. Cost
+https://analytics.zoho.com/open-view/2732937000006459493"
 This chart provides a detailed view of individual model performance and costs per benchmark.
-<iframe frameborder=0 width="800" height="600" src="https://analytics.zoho.com/open-view/2732937000006459493"></iframe>
-Chart Filters and Cost Explanation
+
+### Chart Filters and Cost Explanation
 
 Both embedded charts offer interactive filters to refine the data being displayed:
 
-- Minimum Accuracy Filter: Located on the chart interface, this filter allows you to set a minimum accuracy threshold. Only models that achieved an accuracy score above this minimum percentage in all benchmarks included in the current view will be shown. This helps focus on top-performing models.
-- Timestamp Filter: This date filter allows you to select the data from a specific date's scrape. The script saves data with a timestamp_utc, and this filter uses that timestamp to let you view historical snapshots of the benchmark results.
-- Costs: The charts primarily visualize costs based on the 'Cost Input' metric from the scraped data. It's important to note that the raw data in benchmarks_data.json includes both 'Cost Input' and 'Cost Output', which are often proportional or related based on the model's pricing structure. The charts may simplify by focusing on one metric, but the full cost breakdown is available in the source JSON.
+#### Minimum Accuracy Filter
+Located on the chart interface, this filter allows you to set a minimum accuracy threshold. Only models that achieved an accuracy score above this minimum percentage in all benchmarks included in the current view will be shown. This helps focus on top-performing models.
+#### Timestamp Filter
+This date filter allows you to select the data from a specific date's scrape. The script saves data with a timestamp_utc, and this filter uses that timestamp to let you view historical snapshots of the benchmark results.
+#### Costs
+The charts primarily visualize costs based on the 'Cost Input' metric from the scraped data. It's important to note that the raw data in benchmarks_data.json includes both 'Cost Input' and 'Cost Output', which are often proportional or related based on the model's pricing structure. The charts may simplify by focusing on one metric, but the full cost breakdown is available in the source JSON.
 
-Automation
+## Automation
 
 The script is configured to run daily using GitHub Actions. This ensures the benchmarks_data.json file is automatically updated with the latest information from Vals.ai without manual intervention.
 
