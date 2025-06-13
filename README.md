@@ -29,8 +29,8 @@ The scraped data is stored in a JSON file (`benchmarks_data.json`) in this repos
 
 1.  Clone this repository:
     ```bash
-    git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git
-    cd YOUR_REPO_NAME
+    git clone https://github.com/lucianosarno/llm-benchmarks-costs-parser.git
+    cd llm-benchmarks-costs-parser
     ```
 2.  (Recommended) Create and activate a Python virtual environment:
     ```bash
@@ -48,15 +48,15 @@ To run the scraping script manually:
 
 ```bash
 source .venv/bin/activate # Activate virtual environment if you created one
-python YOUR_SCRIPT_NAME.py
+python vals_parser.py
+```
 
 This script will fetch the latest data and update the benchmarks_data.json file in the root of the repository.
 Data Output: benchmarks_data.json
 
 The core output of the script is the benchmarks_data.json file. This file contains a JSON object with the following structure:
 
-json
-
+```json
 {
     "timestamp_utc": "YYYY-MM-DDTHH:MM:SS.ssssss", // UTC timestamp of the data scrape
     "benchmarks": [
@@ -72,10 +72,11 @@ json
         // ... more model entries ...
     ]
 }
+```
 
 You can view the latest version of this file directly on GitHub or access its raw content via:
 
-https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/main/benchmarks_data.json
+https://raw.githubusercontent.com/lucianosarno/llms-benchmarks-costs-parser/main/benchmarks_data.json
 Data Visualization
 
 The data collected by this script is used to power interactive dashboards hosted on Zoho Analytics, providing visual insights into LLM performance across benchmarks and providers.
@@ -91,9 +92,9 @@ Chart Filters and Cost Explanation
 
 Both embedded charts offer interactive filters to refine the data being displayed:
 
-    Minimum Accuracy Filter: Located on the chart interface, this filter allows you to set a minimum accuracy threshold. Only models that achieved an accuracy score above this minimum percentage in all benchmarks included in the current view will be shown. This helps focus on top-performing models.
-    Timestamp Filter: This date filter allows you to select the data from a specific date's scrape. The script saves data with a timestamp_utc, and this filter uses that timestamp to let you view historical snapshots of the benchmark results.
-    Costs: The charts primarily visualize costs based on the 'Cost Input' metric from the scraped data. It's important to note that the raw data in benchmarks_data.json includes both 'Cost Input' and 'Cost Output', which are often proportional or related based on the model's pricing structure. The charts may simplify by focusing on one metric, but the full cost breakdown is available in the source JSON.
+- Minimum Accuracy Filter: Located on the chart interface, this filter allows you to set a minimum accuracy threshold. Only models that achieved an accuracy score above this minimum percentage in all benchmarks included in the current view will be shown. This helps focus on top-performing models.
+- Timestamp Filter: This date filter allows you to select the data from a specific date's scrape. The script saves data with a timestamp_utc, and this filter uses that timestamp to let you view historical snapshots of the benchmark results.
+- Costs: The charts primarily visualize costs based on the 'Cost Input' metric from the scraped data. It's important to note that the raw data in benchmarks_data.json includes both 'Cost Input' and 'Cost Output', which are often proportional or related based on the model's pricing structure. The charts may simplify by focusing on one metric, but the full cost breakdown is available in the source JSON.
 
 Automation
 
