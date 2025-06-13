@@ -17,7 +17,10 @@ print(f"html_content: {html_content}...")  # Print first 1000 characters for bre
 soup = BeautifulSoup(html_content, 'html.parser')
 # print(f"soup (first 1000 chars of string representation): {str(soup)[:1000]}...")
 benchmark_links = set() # Using 'set' to avoid duplicates
-base_url_prefix = 'https://www.vals.ai/benchmarks'
+
+site_base_url = 'https://www.vals.ai' # Define the base URL
+url_principal = site_base_url + '/benchmarks' # Main benchmarks page URL
+
 
 # Find all links in the page
 all_links = soup.find_all('a', href=True)
@@ -27,11 +30,11 @@ for link in all_links:
     href = link['href']
     # Check if the link starts with the base URL prefix AND it's not the main page
     # Adding a small check to ensure we don't pick the main URL again
-    if href.__contains__('/benchmarks/') and href != base_url_prefix and href != base_url_prefix + '/':
-        # If the link is relative, we would need to construct the full URL
-        # However, in this case, all links are absolute.
-        full_url = href
+    if href and href.startswith('/benchmarks/') and href.strip('/') != 'benchmarks':        
+        full_url = site_base_url + href # Prepend the base site URL        
         benchmark_links.add(full_url)
+    elif href and href.startswith(url_principal + '/') and href.strip('/') != url_principal.strip('/'):
+        benchmark_links.add(href)
 
 # Convert the list if wanted, but set is already good to avoid duplicates
 list_benchmark_links = list(benchmark_links)
@@ -45,24 +48,24 @@ print("-" * 20)
 # --- Data Extraction from Benchmark Pages ---
 all_benchmark_data = []
 
-for benchmark_url in list_benchmark_links:
-    print(f"\nProcessing benchmark page: {benchmark_url}")
-
+for benchmark_url_relative in list_benchmark_links:
+    benchmark_url_full = benchmark_url_relative # Use the full URL collected
+    print(f"\nProcessing benchmark page: {benchmark_url_full}") # Print the full URL    
     try:
-        response = requests.get(benchmark_url)
+        response = requests.get(benchmark_url_full)
         response.raise_for_status() # Throw error for bad codes
         benchmark_html = response.text
     except requests.exceptions.RequestException as e:
-        print(f"Error accessing {benchmark_url}: {e}")
+        print(f"Error accessing {benchmark_url_full}: {e}")
         continue # Skip to the next URL if there's an error
 
     benchmark_soup = BeautifulSoup(benchmark_html, 'html.parser')
 
     # Extract benchmark identifier from URL (e.g., 'legal-qa' from '.../benchmarks/legal-qa')
-    benchmark_id = benchmark_url.split('/')[-1]
+    benchmark_id = benchmark_url_full.split('/')[-1]
     if not benchmark_id: # Handle potential trailing slash
-         benchmark_id = benchmark_url.split('/')[-2]
-    # print(f"  Benchmark ID: {benchmark_id}") # Already printed above
+        benchmark_id = benchmark_url_full.split('/')[-2]
+        print(f"  Benchmark ID: {benchmark_id}") # Already printed above
 
     models_on_this_page = []
 
