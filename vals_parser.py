@@ -19,7 +19,7 @@ base_url_prefix = 'https://www.vals.ai/benchmarks'
 all_links = soup.find_all('a', href=True)
 
 for link in all_links:
-    href = link.get['href']
+    href = link['href']
     # Check if the link starts with the base URL prefix AND it's not the main page
     # Adding a small check to ensure we don't pick the main URL again
     if href.startswith(base_url_prefix) and href != base_url_prefix and href != base_url_prefix + '/':
