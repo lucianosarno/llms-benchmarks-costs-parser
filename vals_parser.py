@@ -45,7 +45,7 @@ for link in list_benchmark_links:
 
 print("-" * 20)
 
-# --- Data Extraction from Benchmark Pages ---
+# --- Data Extraction from Benchmark Pages --- suc
 all_benchmark_data = []
 
 for benchmark_url_relative in list_benchmark_links:
@@ -167,11 +167,11 @@ for benchmark_url_relative in list_benchmark_links:
 
             except Exception as e:
                 # Catch any errors during parsing a single model entry
-                print(f"    Error parsing model entry on {benchmark_url}: {e}")
+                print(f"    Error parsing model entry on {benchmark_url_full}: {e}")
                 # Continue to the next model entry even if one fails
 
     else:
-        print(f"  Could not find the model entries container (first <a>.block parent) on {benchmark_url}")
+        print(f"  Could not find the model entries container (first <a>.block parent) on {benchmark_url_full}")
 
 
     # Add the extracted models from this page to the main list
