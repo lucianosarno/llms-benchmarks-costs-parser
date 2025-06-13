@@ -7,10 +7,10 @@ try:
     response.raise_for_status() # Throw error for bad codes (4xx ou 5xx)
     html_content = response.text
 except requests.exceptions.RequestException as e:
-    print(f"Error accessing the main account: {e}")
+    print(f"Error accessing the main page: {e}")
     exit() # End script in case of error
 
-    soup = BeautifulSoup(html_content, 'html.parser')
+soup = BeautifulSoup(html_content, 'html.parser')
 
 benchmark_links = set() # Using 'set' to avoid duplicates
 base_url_prefix = 'https://www.vals.ai/benchmarks'
@@ -19,7 +19,7 @@ base_url_prefix = 'https://www.vals.ai/benchmarks'
 all_links = soup.find_all('a', href=True)
 
 for link in all_links:
-    href = link['href']
+    href = link.get['href']
     # Check if the link starts with the base URL prefix AND it's not the main page
     # Adding a small check to ensure we don't pick the main URL again
     if href.startswith(base_url_prefix) and href != base_url_prefix and href != base_url_prefix + '/':
