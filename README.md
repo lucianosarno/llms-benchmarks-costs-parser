@@ -83,12 +83,14 @@ https://raw.githubusercontent.com/lucianosarno/llms-benchmarks-costs-parser/main
 The data collected by this script is used to power interactive dashboards hosted on Zoho Analytics, providing visual insights into LLM performance across benchmarks and providers.
 
 ### LLM Providers vs. Benchmarks vs. Cost
+![Individual LLM Models vs. Benchmarks vs. Cost](https://analytics.zoho.com/open-view/2732937000006457007)
 https://analytics.zoho.com/open-view/2732937000006457007
 
 This chart aggregates data by provider, showing average costs across different benchmarks.
 
 ### Individual LLM Models vs. Benchmarks vs. Cost
-https://analytics.zoho.com/open-view/2732937000006459493"
+![Individual LLM Models vs. Benchmarks vs. Cost](https://analytics.zoho.com/open-view/2732937000006459493)
+https://analytics.zoho.com/open-view/2732937000006459493
 This chart provides a detailed view of individual model performance and costs per benchmark.
 
 ### Chart Filters and Cost Explanation
