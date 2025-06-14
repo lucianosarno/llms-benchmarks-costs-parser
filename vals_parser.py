@@ -1,154 +1,167 @@
-import requests
-from bs4 import BeautifulSoup
-import json # Import json library for saving data
-import re # Import regex for potentially cleaning accuracy data
-from datetime import datetime # For adding a timestamp
+import requests # Used for making HTTP requests to fetch web pages
+from bs4 import BeautifulSoup # Used for parsing HTML content
+import json # Used for saving the extracted data into a JSON file
+import re # Used for regular expressions, specifically for cleaning the accuracy value
+from datetime import datetime # Used for adding a timestamp to the output data
 
-url_principal = 'https://www.vals.ai/benchmarks'
+# --- Configuration ---
+site_base_url = 'https://www.vals.ai' # Base URL of the website
+url_main_benchmarks_page = site_base_url + '/benchmarks' # URL of the main benchmarks listing page
+
+# --- Access Main Benchmarks Page ---
+# Attempt to fetch the content of the main benchmarks page
 try:
-    response = requests.get(url_principal)
-    response.raise_for_status() # Throw error for bad codes (4xx ou 5xx)
-    html_content = response.text
+    response = requests.get(url_main_benchmarks_page)
+    response.raise_for_status() # Check for bad status codes (400s or 500s) and raise an exception
+    html_content_main_page = response.text # Get the HTML content as text
 except requests.exceptions.RequestException as e:
+    # If there's an error accessing the page, print the error and exit
     print(f"Error accessing the main page: {e}")
-    exit() # End script in case of error
+    exit()
 
-print(f"html_content: {html_content}...")  # Print first 1000 characters for brevity
-soup = BeautifulSoup(html_content, 'html.parser')
-# print(f"soup (first 1000 chars of string representation): {str(soup)[:1000]}...")
-benchmark_links = set() # Using 'set' to avoid duplicates
+# --- Parse Main Page and Collect Benchmark Links ---
+# Parse the HTML content of the main page using BeautifulSoup
+soup_main_page = BeautifulSoup(html_content_main_page, 'html.parser')
 
-site_base_url = 'https://www.vals.ai' # Define the base URL
-url_principal = site_base_url + '/benchmarks' # Main benchmarks page URL
+# Set to store unique benchmark URLs
+benchmark_links = set()
 
+# Find all <a> tags with an href attribute on the main page
+all_links_on_main_page = soup_main_page.find_all('a', href=True)
 
-# Find all links in the page
-all_links = soup.find_all('a', href=True)
-# print(f"all_links: {all_links[:1000]}...")  # Print first 1000 characters for brevity
+# Iterate through all found links
+for link in all_links_on_main_page:
+    href = link['href'] # Get the value of the href attribute
 
-for link in all_links:
-    href = link['href']
-    # Check if the link starts with the base URL prefix AND it's not the main page
-    # Adding a small check to ensure we don't pick the main URL again
-    if href and href.startswith('/benchmarks/') and href.strip('/') != 'benchmarks':        
-        full_url = site_base_url + href # Prepend the base site URL        
-        benchmark_links.add(full_url)
-    elif href and href.startswith(url_principal + '/') and href.strip('/') != url_principal.strip('/'):
-        benchmark_links.add(href)
+    # Check if the href is a relative path starting with '/benchmarks/'
+    # and is not the main benchmarks page itself
+    if href and href.startswith('/benchmarks/') and href.strip('/') != 'benchmarks':
+        full_url = site_base_url + href # Construct the absolute URL
+        benchmark_links.add(full_url) # Add the full URL to the set
 
-# Convert the list if wanted, but set is already good to avoid duplicates
+    # Also check for absolute links starting with the main page URL prefix
+    # This handles cases where links might already be absolute
+    elif href and href.startswith(url_main_benchmarks_page + '/') and href.strip('/') != url_main_benchmarks_page.strip('/'):
+        benchmark_links.add(href) # Add the absolute URL to the set
+
+# Convert the set of links to a list
 list_benchmark_links = list(benchmark_links)
 
-print(f"Found {len(list_benchmark_links)} benchmarks links:")
+# Print the collected benchmark links
+print(f"Found {len(list_benchmark_links)} benchmark links:")
 for link in list_benchmark_links:
     print(link)
 
 print("-" * 20)
 
-# --- Data Extraction from Benchmark Pages --- suc
+# --- Data Extraction from Individual Benchmark Pages ---
+# List to store all extracted model data from all benchmarks
 all_benchmark_data = []
 
-for benchmark_url_relative in list_benchmark_links:
-    benchmark_url_full = benchmark_url_relative # Use the full URL collected
-    print(f"\nProcessing benchmark page: {benchmark_url_full}") # Print the full URL    
+# Loop through each collected benchmark URL
+for benchmark_url_full in list_benchmark_links:
+    print(f"\nProcessing benchmark page: {benchmark_url_full}")
+
+    # Attempt to fetch the content of the current benchmark page
     try:
         response = requests.get(benchmark_url_full)
-        response.raise_for_status() # Throw error for bad codes
-        benchmark_html = response.text
+        response.raise_for_status() # Check for bad status codes
+        benchmark_html = response.text # Get the HTML content
     except requests.exceptions.RequestException as e:
+        # If error, print error and skip to the next URL
         print(f"Error accessing {benchmark_url_full}: {e}")
-        continue # Skip to the next URL if there's an error
+        continue
 
+    # Parse the HTML content of the benchmark page
     benchmark_soup = BeautifulSoup(benchmark_html, 'html.parser')
 
-    # Extract benchmark identifier from URL (e.g., 'legal-qa' from '.../benchmarks/legal-qa')
+    # Extract the benchmark identifier from the URL (e.g., 'legal-qa')
     benchmark_id = benchmark_url_full.split('/')[-1]
-    if not benchmark_id: # Handle potential trailing slash
+    if not benchmark_id: # Handle potential trailing slash in the URL
         benchmark_id = benchmark_url_full.split('/')[-2]
-        print(f"  Benchmark ID: {benchmark_id}") # Already printed above
+    # print(f"  Benchmark ID: {benchmark_id}") # Commented out to avoid double print
 
+    # List to hold data for models found on the current page
     models_on_this_page = []
 
-    # Find the container that holds the list of model rows (the <a> tags with class="block")
-    # Based on the HTML, the <a> tags are direct children of a <div>
-    # which is a sibling to the header <div>, both within a parent div.
-    # A robust way is to find the first <a> with class 'block' and get its parent.
+    # Find the main HTML element that contains the list of model entries.
+    # Based on inspection, each model entry is an <a> tag with class 'block',
+    # and these <a> tags are direct children of a <div>. We find the container
+    # by locating the first model <a> tag and getting its parent.
     first_model_link = benchmark_soup.find('a', class_='block')
 
     model_entries_container = None
     if first_model_link:
-        model_entries_container = first_model_link.parent # The parent of the first <a> should be the container
+        model_entries_container = first_model_link.parent # The parent div containing all model links
 
+    # If the container is found
     if model_entries_container:
-        # Find all individual model entries (the <a> tags)
+        # Find all individual model entry <a> tags within the container
         model_entries = model_entries_container.find_all('a', class_='block')
 
         print(f"  Found {len(model_entries)} model entries on {benchmark_id}.")
 
+        # Loop through each individual model entry link
         for model_link in model_entries:
             try:
-                # Data is inside the first div within the <a> tag
-                # Using the class name from the provided HTML snippet
+                # Find the <div> within the <a> tag that holds the structured data for the model row
+                # Using the specific class name identified from HTML inspection
                 data_div = model_link.find('div', class_='grid grid-cols-[2.5fr_1fr_1fr_1fr] py-3 bg-white border-b border-zinc-700 hover:bg-zinc-100 transition-all duration-150')
 
+                # If the data div is found
                 if data_div:
-                    # Locate the sub-sections within the data_div
-                    # The structure is:
-                    # div (col 1: Rank, Company Logo, Model Name)
-                    # p (col 2: Accuracy)
-                    # p (col 3: Cost Input / Cost Output)
-                    # p (col 4: Latency)
+                    # The data (Accuracy, Costs, Latency) are in direct <p> tags following the first <div>.
+                    # The first <div> contains the Rank, Company Logo, and Model Name.
+                    # Find the first column <div> that contains logo and model name
+                    col1_div = data_div.find('div', class_='flex flex-row gap-2 pl-3')
 
-                    # Find Column 1 div
-                    col1_div = data_div.find('div', class_='flex flex-row gap-2 pl-3') # The first div child
-
-                    # Find the direct p tags for Accuracy, Costs, Latency
-                    # Use recursive=False to only get direct children
+                    # Find all direct child <p> tags within the data_div (these hold Accuracy, Costs, Latency)
                     p_tags = data_div.find_all('p', recursive=False)
 
-                    if col1_div and len(p_tags) >= 3: # Ensure required elements are found
-                        # Extract Company Name from SVG src (from Column 1 div)
+                    # Ensure we found the necessary elements before attempting extraction
+                    if col1_div and len(p_tags) >= 3:
+                        # Extract Company Name from the src attribute of the <img> tag in the first column div
                         company_img_tag = col1_div.find('img')
-                        company_name = 'N/A'
+                        company_name = 'N/A' # Default value
                         if company_img_tag and company_img_tag.get('src'):
                             img_src = company_img_tag['src']
-                            # Extract filename without extension, e.g., 'OpenAI' from '/Icons/OpenAI.svg'
+                            # Extract the filename from the source path (e.g., 'OpenAI.svg' from '/Icons/OpenAI.svg')
                             filename = img_src.split('/')[-1]
+                            # Extract the company name from the filename (e.g., 'OpenAI' from 'OpenAI.svg')
                             company_name = filename.split('.')[0] if '.' in filename else filename
-                            # Clean up common patterns like '-Instruct', and format nicely
+                            # Clean up the name and format it (e.g., 'xAI' from 'xAI', 'Meta' from 'Meta-Llama')
                             company_name = company_name.replace('-Instruct', '').replace('-', ' ').strip().title()
-                            if company_name.lower() == 'xai': # Special case for xAI
+                            if company_name.lower() == 'xai': # Correct capitalization for xAI
                                 company_name = 'xAI'
 
-
-                        # Extract Model Name (from Column 1 div)
-                        # It's the p tag inside col1_div with specific classes
+                        # Extract the Model Name from the specific <p> tag in the first column div
                         model_name_tag = col1_div.find('p', class_='text-slate900 text-xs md:text-xs lg:text-sm gap-1 flex-row items-center justify-center tracking-0.2')
-                        model_name = model_name_tag.text.strip() if model_name_tag else 'N/A'
+                        model_name = model_name_tag.text.strip() if model_name_tag else 'N/A' # Extract text or use default
 
-                        # Extract Accuracy (from the first direct p tag)
+
+                        # Extract Accuracy from the first direct <p> tag
                         accuracy_tag = p_tags[0]
                         accuracy_text = accuracy_tag.get_text(strip=True) if accuracy_tag else ''
-                        # The accuracy value is usually a number followed by %. Use regex to be robust.
+                        # Use regex to find the percentage value, which is more reliable than just stripping text
                         accuracy_match = re.search(r'\d+\.?\d*%', accuracy_text)
-                        accuracy = accuracy_match.group(0) if accuracy_match else accuracy_text # Fallback if regex fails
+                        accuracy = accuracy_match.group(0) if accuracy_match else accuracy_text # Use regex match or full text
 
 
-                        # Extract Costs (from the second direct p tag)
+                        # Extract Costs (Input/Output) from the second direct <p> tag
                         costs_tag = p_tags[1]
                         costs_text = costs_tag.text.strip() if costs_tag else 'N/A / N/A'
+                        # Split the text by '/' to separate input and output costs
                         cost_parts = costs_text.split('/')
                         cost_input = cost_parts[0].strip() if len(cost_parts) > 0 else 'N/A'
                         cost_output = cost_parts[1].strip() if len(cost_parts) > 1 else 'N/A'
 
-                        # Extract Latency (from the third direct p tag)
+                        # Extract Latency from the third direct <p> tag
                         latency_tag = p_tags[2]
-                        latency = latency_tag.text.strip() if latency_tag else 'N/A'
+                        latency = latency_tag.text.strip() if latency_tag else 'N/A' # Extract text or use default
 
-
-                        # Create a dictionary for this model
+                        # Create a dictionary for the current model's data
                         model_data = {
-                            'benchmark': benchmark_id, # Add the benchmark identifier
+                            'benchmark': benchmark_id, # Include the benchmark identifier for context
                             'model': model_name,
                             'company': company_name,
                             'accuracy': accuracy,
@@ -156,44 +169,49 @@ for benchmark_url_relative in list_benchmark_links:
                             'cost_output': cost_output,
                             'latency': latency
                         }
+                        # Add the model's data to the list for this page
                         models_on_this_page.append(model_data)
 
-                    else:
-                         # Optional: print warning if structure doesn't match expected
-                         # print(f"    Warning: Could not find expected structure within data_div for a model entry on {benchmark_url}")
-                         # if data_div: print(data_div.prettify())
-                         pass # Skip this entry if structure is unexpected
+                    # Optional: Print a warning if the expected structure isn't found for a model row
+                    # else:
+                    #      print(f"    Warning: Could not find expected structure within data_div for a model entry on {benchmark_url_full}")
 
 
             except Exception as e:
-                # Catch any errors during parsing a single model entry
+                # Catch any errors during the parsing of a single model entry
                 print(f"    Error parsing model entry on {benchmark_url_full}: {e}")
                 # Continue to the next model entry even if one fails
 
+    # If the container for model entries was not found on the page
     else:
-        print(f"  Could not find the model entries container (first <a>.block parent) on {benchmark_url_full}")
+        print(f"  Could not find the model entries container on {benchmark_url_full}")
 
 
-    # Add the extracted models from this page to the main list
+    # Add all collected model data from the current page to the main list
     all_benchmark_data.extend(models_on_this_page)
 
-# --- Save Data to JSON ---
+# --- Save Collected Data to JSON File ---
 print("\nFinished processing all benchmark pages.")
 print(f"Collected data for {len(all_benchmark_data)} model entries in total.")
 
-# Add a timestamp to the data for context
+# Prepare the final data structure including a timestamp
 data_with_timestamp = {
-    'timestamp_utc': datetime.utcnow().isoformat(), # Use UTC timestamp
-    'benchmarks': all_benchmark_data
+    'timestamp_utc': datetime.utcnow().isoformat(), # Add current UTC timestamp
+    'benchmarks': all_benchmark_data # Include the list of all extracted model data
 }
 
+# Define the output JSON filename
 json_filename = 'benchmarks_data.json'
 
+# Attempt to write the data to the JSON file
 try:
     with open(json_filename, 'w', encoding='utf-8') as f:
+        # Dump the Python dictionary to a JSON file, ensuring non-ASCII chars are handled
+        # and formatting with indentation for readability
         json.dump(data_with_timestamp, f, ensure_ascii=False, indent=4)
     print(f"Successfully saved data to {json_filename}")
 except IOError as e:
+    # If there's an error writing the file, print the error
     print(f"Error saving data to {json_filename}: {e}")
 
 print("-" * 20)
