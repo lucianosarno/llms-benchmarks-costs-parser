@@ -145,11 +145,11 @@ for benchmark_url_full in list_benchmark_links:
                         # Use regex to find the percentage value, which is more reliable than just stripping text
                         accuracy_match = re.search(r'\d+\.?\d*%', accuracy_text)
                         accuracy = accuracy_match.group(0) if accuracy_match else accuracy_text # Use regex match or full text
-                        number_string = accuracy.replace('%', '')
+                        accuracy_number_string = accuracy.replace('%', '')
                         try:
-                            accuracy = float(number_string)
+                            accuracy = float(accuracy_number_string)
                         except ValueError:
-                            print(f"Warning: Could not convert '{number_string}' to a number.")
+                            print(f"Warning: Could not convert '{accuracy_number_string}' to a number.")
                             accuracy = None                       
 
                         # Extract Costs (Input/Output) from the second direct <p> tag
@@ -163,6 +163,12 @@ for benchmark_url_full in list_benchmark_links:
                         # Extract Latency from the third direct <p> tag
                         latency_tag = p_tags[2]
                         latency = latency_tag.text.strip() if latency_tag else 'N/A' # Extract text or use default
+                        latency_number_string = latency.replace(' s', '')
+                        try:
+                            latency = float(latency_number_string)
+                        except ValueError:
+                            print(f"Warning: Could not convert '{latency_number_string}' to a number.")
+                            latency = None   
 
                         # Create a dictionary for the current model's data
                         model_data = {

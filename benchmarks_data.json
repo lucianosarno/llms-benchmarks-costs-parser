@@ -1,1086 +1,6 @@
 {
-    "timestamp_utc": "2025-06-15 22:10:55",
+    "timestamp_utc": "2025-06-15 22:14:47",
     "benchmarks": [
-        {
-            "benchmark": "medqa-05-30-2025",
-            "model": "o1",
-            "company": "Openai",
-            "accuracy": 96.5,
-            "cost_input": "$15.00",
-            "cost_output": "$60.00",
-            "latency": "11.15 s"
-        },
-        {
-            "benchmark": "medqa-05-30-2025",
-            "model": "o3",
-            "company": "Openai",
-            "accuracy": 96.1,
-            "cost_input": "$2.00",
-            "cost_output": "$8.00",
-            "latency": "8.51 s"
-        },
-        {
-            "benchmark": "medqa-05-30-2025",
-            "model": "o4 Mini",
-            "company": "Openai",
-            "accuracy": 96.0,
-            "cost_input": "$1.10",
-            "cost_output": "$4.40",
-            "latency": "6.60 s"
-        },
-        {
-            "benchmark": "medqa-05-30-2025",
-            "model": "o3 Mini",
-            "company": "Openai",
-            "accuracy": 94.8,
-            "cost_input": "$1.10",
-            "cost_output": "$4.40",
-            "latency": "8.39 s"
-        },
-        {
-            "benchmark": "medqa-05-30-2025",
-            "model": "Gemini 2.5 Pro Exp",
-            "company": "Google",
-            "accuracy": 93.1,
-            "cost_input": "$1.25",
-            "cost_output": "$10.00",
-            "latency": "10.70 s"
-        },
-        {
-            "benchmark": "medqa-05-30-2025",
-            "model": "o1 Preview",
-            "company": "Openai",
-            "accuracy": 93.0,
-            "cost_input": "$15.00",
-            "cost_output": "$60.00",
-            "latency": "16.44 s"
-        },
-        {
-            "benchmark": "medqa-05-30-2025",
-            "model": "Claude Opus 4 (Nonthinking)",
-            "company": "Anthropic",
-            "accuracy": 92.9,
-            "cost_input": "$15.00",
-            "cost_output": "$75.00",
-            "latency": "11.93 s"
-        },
-        {
-            "benchmark": "medqa-05-30-2025",
-            "model": "Claude Sonnet 4 (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 92.7,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "26.99 s"
-        },
-        {
-            "benchmark": "medqa-05-30-2025",
-            "model": "Grok 2",
-            "company": "xAI",
-            "accuracy": 92.3,
-            "cost_input": "$2.00",
-            "cost_output": "$10.00",
-            "latency": "4.09 s"
-        },
-        {
-            "benchmark": "medqa-05-30-2025",
-            "model": "GPT 4.1",
-            "company": "Openai",
-            "accuracy": 91.2,
-            "cost_input": "$2.00",
-            "cost_output": "$8.00",
-            "latency": "3.08 s"
-        },
-        {
-            "benchmark": "finance_agent-05-30-2025",
-            "model": "o3",
-            "company": "Openai",
-            "accuracy": 48.3,
-            "cost_input": "$0.74",
-            "cost_output": "N/A",
-            "latency": "180.18 s"
-        },
-        {
-            "benchmark": "finance_agent-05-30-2025",
-            "model": "Claude Sonnet 4 (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 44.5,
-            "cost_input": "$0.85",
-            "cost_output": "N/A",
-            "latency": "136.75 s"
-        },
-        {
-            "benchmark": "finance_agent-05-30-2025",
-            "model": "Claude 3.7 Sonnet (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 44.1,
-            "cost_input": "$1.05",
-            "cost_output": "N/A",
-            "latency": "156.21 s"
-        },
-        {
-            "benchmark": "finance_agent-05-30-2025",
-            "model": "Claude Sonnet 4 (Nonthinking)",
-            "company": "Anthropic",
-            "accuracy": 43.5,
-            "cost_input": "$0.89",
-            "cost_output": "N/A",
-            "latency": "105.20 s"
-        },
-        {
-            "benchmark": "finance_agent-05-30-2025",
-            "model": "Claude 3.7 Sonnet (Nonthinking)",
-            "company": "Anthropic",
-            "accuracy": 42.9,
-            "cost_input": "$0.99",
-            "cost_output": "N/A",
-            "latency": "124.60 s"
-        },
-        {
-            "benchmark": "finance_agent-05-30-2025",
-            "model": "o4 Mini",
-            "company": "Openai",
-            "accuracy": 36.5,
-            "cost_input": "$0.28",
-            "cost_output": "N/A",
-            "latency": "162.14 s"
-        },
-        {
-            "benchmark": "finance_agent-05-30-2025",
-            "model": "Grok 3 Mini Fast High Reasoning",
-            "company": "xAI",
-            "accuracy": 31.7,
-            "cost_input": "$0.13",
-            "cost_output": "N/A",
-            "latency": "270.68 s"
-        },
-        {
-            "benchmark": "finance_agent-05-30-2025",
-            "model": "Gemini 2.5 Pro Preview",
-            "company": "Google",
-            "accuracy": 29.4,
-            "cost_input": "$0.22",
-            "cost_output": "N/A",
-            "latency": "80.21 s"
-        },
-        {
-            "benchmark": "finance_agent-05-30-2025",
-            "model": "GPT 4.1",
-            "company": "Openai",
-            "accuracy": 24.6,
-            "cost_input": "$0.24",
-            "cost_output": "N/A",
-            "latency": "66.47 s"
-        },
-        {
-            "benchmark": "finance_agent-05-30-2025",
-            "model": "Grok 3 Beta",
-            "company": "xAI",
-            "accuracy": 24.1,
-            "cost_input": "$0.44",
-            "cost_output": "N/A",
-            "latency": "64.48 s"
-        },
-        {
-            "benchmark": "math500-05-30-2025",
-            "model": "Gemini 2.5 Pro Exp",
-            "company": "Google",
-            "accuracy": 95.2,
-            "cost_input": "$1.25",
-            "cost_output": "$10.00",
-            "latency": "25.83 s"
-        },
-        {
-            "benchmark": "math500-05-30-2025",
-            "model": "o3",
-            "company": "Openai",
-            "accuracy": 94.6,
-            "cost_input": "$2.00",
-            "cost_output": "$8.00",
-            "latency": "16.59 s"
-        },
-        {
-            "benchmark": "math500-05-30-2025",
-            "model": "Qwen 3 (235B)",
-            "company": "Alibaba",
-            "accuracy": 94.6,
-            "cost_input": "$0.22",
-            "cost_output": "$0.88",
-            "latency": "142.75 s"
-        },
-        {
-            "benchmark": "math500-05-30-2025",
-            "model": "Grok 3 Mini Fast High Reasoning",
-            "company": "xAI",
-            "accuracy": 94.2,
-            "cost_input": "$0.60",
-            "cost_output": "$4.00",
-            "latency": "22.77 s"
-        },
-        {
-            "benchmark": "math500-05-30-2025",
-            "model": "o4 Mini",
-            "company": "Openai",
-            "accuracy": 94.2,
-            "cost_input": "$1.10",
-            "cost_output": "$4.40",
-            "latency": "12.54 s"
-        },
-        {
-            "benchmark": "math500-05-30-2025",
-            "model": "Claude Sonnet 4 (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 93.8,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "63.47 s"
-        },
-        {
-            "benchmark": "math500-05-30-2025",
-            "model": "DeepSeek R1",
-            "company": "Deepseek",
-            "accuracy": 92.2,
-            "cost_input": "$8.00",
-            "cost_output": "$8.00",
-            "latency": "156.47 s"
-        },
-        {
-            "benchmark": "math500-05-30-2025",
-            "model": "o3 Mini",
-            "company": "Openai",
-            "accuracy": 91.8,
-            "cost_input": "$1.10",
-            "cost_output": "$4.40",
-            "latency": "14.36 s"
-        },
-        {
-            "benchmark": "math500-05-30-2025",
-            "model": "Gemini 2.5 Flash Preview (Thinking)",
-            "company": "Google",
-            "accuracy": 91.8,
-            "cost_input": "$0.15",
-            "cost_output": "$3.50",
-            "latency": "23.66 s"
-        },
-        {
-            "benchmark": "math500-05-30-2025",
-            "model": "Claude 3.7 Sonnet (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 91.6,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "94.24 s"
-        },
-        {
-            "benchmark": "mmmu-05-30-2025",
-            "model": "Gemini 2.5 Pro Exp",
-            "company": "Google",
-            "accuracy": 81.5,
-            "cost_input": "$1.25",
-            "cost_output": "$10.00",
-            "latency": "24.15 s"
-        },
-        {
-            "benchmark": "mmmu-05-30-2025",
-            "model": "o3",
-            "company": "Openai",
-            "accuracy": 80.1,
-            "cost_input": "$2.00",
-            "cost_output": "$8.00",
-            "latency": "39.27 s"
-        },
-        {
-            "benchmark": "mmmu-05-30-2025",
-            "model": "o4 Mini",
-            "company": "Openai",
-            "accuracy": 79.7,
-            "cost_input": "$1.10",
-            "cost_output": "$4.40",
-            "latency": "19.72 s"
-        },
-        {
-            "benchmark": "mmmu-05-30-2025",
-            "model": "o1",
-            "company": "Openai",
-            "accuracy": 77.7,
-            "cost_input": "$15.00",
-            "cost_output": "$60.00",
-            "latency": "26.41 s"
-        },
-        {
-            "benchmark": "mmmu-05-30-2025",
-            "model": "Claude 3.7 Sonnet (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 76.0,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "69.58 s"
-        },
-        {
-            "benchmark": "mmmu-05-30-2025",
-            "model": "Claude Sonnet 4 (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 75.1,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "48.85 s"
-        },
-        {
-            "benchmark": "mmmu-05-30-2025",
-            "model": "Claude Opus 4 (Nonthinking)",
-            "company": "Anthropic",
-            "accuracy": 73.4,
-            "cost_input": "$15.00",
-            "cost_output": "$75.00",
-            "latency": "14.02 s"
-        },
-        {
-            "benchmark": "mmmu-05-30-2025",
-            "model": "Llama 4 Maverick",
-            "company": "Meta",
-            "accuracy": 72.6,
-            "cost_input": "$0.27",
-            "cost_output": "$0.85",
-            "latency": "7.91 s"
-        },
-        {
-            "benchmark": "mmmu-05-30-2025",
-            "model": "Claude Sonnet 4 (Nonthinking)",
-            "company": "Anthropic",
-            "accuracy": 72.6,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "10.82 s"
-        },
-        {
-            "benchmark": "mmmu-05-30-2025",
-            "model": "Gemini 2.0 Flash (001)",
-            "company": "Google",
-            "accuracy": 71.9,
-            "cost_input": "$0.10",
-            "cost_output": "$0.40",
-            "latency": "45.22 s"
-        },
-        {
-            "benchmark": "swebench-2025-06-13",
-            "model": "Claude Sonnet 4 (Nonthinking)",
-            "company": "Anthropic",
-            "accuracy": 65.0,
-            "cost_input": "$1.24",
-            "cost_output": "N/A",
-            "latency": "426.52 s"
-        },
-        {
-            "benchmark": "swebench-2025-06-13",
-            "model": "o3",
-            "company": "Openai",
-            "accuracy": 49.8,
-            "cost_input": "$1.42",
-            "cost_output": "N/A",
-            "latency": "620.33 s"
-        },
-        {
-            "benchmark": "swebench-2025-06-13",
-            "model": "GPT 4.1",
-            "company": "Openai",
-            "accuracy": 47.4,
-            "cost_input": "$0.45",
-            "cost_output": "N/A",
-            "latency": "173.98 s"
-        },
-        {
-            "benchmark": "swebench-2025-06-13",
-            "model": "Gemini 2.5 Pro Preview",
-            "company": "Google",
-            "accuracy": 46.8,
-            "cost_input": "$0.88",
-            "cost_output": "N/A",
-            "latency": "540.96 s"
-        },
-        {
-            "benchmark": "swebench-2025-06-13",
-            "model": "Gemini 2.5 Flash Preview (Nonthinking)",
-            "company": "Google",
-            "accuracy": 35.6,
-            "cost_input": "$0.11",
-            "cost_output": "N/A",
-            "latency": "251.91 s"
-        },
-        {
-            "benchmark": "swebench-2025-06-13",
-            "model": "GPT 4.1 Mini",
-            "company": "Openai",
-            "accuracy": 34.8,
-            "cost_input": "$0.13",
-            "cost_output": "N/A",
-            "latency": "233.12 s"
-        },
-        {
-            "benchmark": "swebench-2025-06-13",
-            "model": "o4 Mini",
-            "company": "Openai",
-            "accuracy": 33.4,
-            "cost_input": "$1.54",
-            "cost_output": "N/A",
-            "latency": "976.81 s"
-        },
-        {
-            "benchmark": "swebench-2025-06-13",
-            "model": "GPT 4o (2024-08-06)",
-            "company": "Openai",
-            "accuracy": 27.2,
-            "cost_input": "$1.53",
-            "cost_output": "N/A",
-            "latency": "197.58 s"
-        },
-        {
-            "benchmark": "swebench-2025-06-13",
-            "model": "Llama 4 Maverick",
-            "company": "Meta",
-            "accuracy": 18.4,
-            "cost_input": "$0.12",
-            "cost_output": "N/A",
-            "latency": "62.48 s"
-        },
-        {
-            "benchmark": "swebench-2025-06-13",
-            "model": "Command A",
-            "company": "Cohere",
-            "accuracy": 0.2,
-            "cost_input": "$0.01",
-            "cost_output": "N/A",
-            "latency": "5.26 s"
-        },
-        {
-            "benchmark": "aime-2025-05-30",
-            "model": "o3 Mini",
-            "company": "Openai",
-            "accuracy": 86.5,
-            "cost_input": "$1.10",
-            "cost_output": "$4.40",
-            "latency": "154.65 s"
-        },
-        {
-            "benchmark": "aime-2025-05-30",
-            "model": "Gemini 2.5 Pro Exp",
-            "company": "Google",
-            "accuracy": 85.8,
-            "cost_input": "$1.25",
-            "cost_output": "$10.00",
-            "latency": "143.91 s"
-        },
-        {
-            "benchmark": "aime-2025-05-30",
-            "model": "o3",
-            "company": "Openai",
-            "accuracy": 85.3,
-            "cost_input": "$2.00",
-            "cost_output": "$8.00",
-            "latency": "266.18 s"
-        },
-        {
-            "benchmark": "aime-2025-05-30",
-            "model": "Grok 3 Mini Fast High Reasoning",
-            "company": "xAI",
-            "accuracy": 85.0,
-            "cost_input": "$0.60",
-            "cost_output": "$4.00",
-            "latency": "102.25 s"
-        },
-        {
-            "benchmark": "aime-2025-05-30",
-            "model": "Qwen 3 (235B)",
-            "company": "Alibaba",
-            "accuracy": 84.0,
-            "cost_input": "$0.22",
-            "cost_output": "$0.88",
-            "latency": "242.17 s"
-        },
-        {
-            "benchmark": "aime-2025-05-30",
-            "model": "o4 Mini",
-            "company": "Openai",
-            "accuracy": 83.7,
-            "cost_input": "$1.10",
-            "cost_output": "$4.40",
-            "latency": "55.11 s"
-        },
-        {
-            "benchmark": "aime-2025-05-30",
-            "model": "Claude Sonnet 4 (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 76.3,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "271.79 s"
-        },
-        {
-            "benchmark": "aime-2025-05-30",
-            "model": "DeepSeek R1",
-            "company": "Deepseek",
-            "accuracy": 74.0,
-            "cost_input": "$8.00",
-            "cost_output": "$8.00",
-            "latency": "153.91 s"
-        },
-        {
-            "benchmark": "aime-2025-05-30",
-            "model": "o1",
-            "company": "Openai",
-            "accuracy": 71.5,
-            "cost_input": "$15.00",
-            "cost_output": "$60.00",
-            "latency": "177.03 s"
-        },
-        {
-            "benchmark": "aime-2025-05-30",
-            "model": "Grok 3 Mini Fast Low Reasoning",
-            "company": "xAI",
-            "accuracy": 70.6,
-            "cost_input": "$0.60",
-            "cost_output": "$4.00",
-            "latency": "31.40 s"
-        },
-        {
-            "benchmark": "legal_bench-05-30-2025",
-            "model": "Gemini 2.5 Pro Exp",
-            "company": "Google",
-            "accuracy": 83.6,
-            "cost_input": "$1.25",
-            "cost_output": "$10.00",
-            "latency": "3.51 s"
-        },
-        {
-            "benchmark": "legal_bench-05-30-2025",
-            "model": "Gemini 2.5 Flash Preview (Nonthinking)",
-            "company": "Google",
-            "accuracy": 82.8,
-            "cost_input": "$0.15",
-            "cost_output": "$0.60",
-            "latency": "0.43 s"
-        },
-        {
-            "benchmark": "legal_bench-05-30-2025",
-            "model": "o3",
-            "company": "Openai",
-            "accuracy": 82.5,
-            "cost_input": "$2.00",
-            "cost_output": "$8.00",
-            "latency": "5.14 s"
-        },
-        {
-            "benchmark": "legal_bench-05-30-2025",
-            "model": "Grok 3 Mini Fast High Reasoning",
-            "company": "xAI",
-            "accuracy": 82.0,
-            "cost_input": "$0.60",
-            "cost_output": "$4.00",
-            "latency": "4.92 s"
-        },
-        {
-            "benchmark": "legal_bench-05-30-2025",
-            "model": "Grok 3 Beta",
-            "company": "xAI",
-            "accuracy": 82.0,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "0.44 s"
-        },
-        {
-            "benchmark": "legal_bench-05-30-2025",
-            "model": "GPT 4.1",
-            "company": "Openai",
-            "accuracy": 81.9,
-            "cost_input": "$2.00",
-            "cost_output": "$8.00",
-            "latency": "0.42 s"
-        },
-        {
-            "benchmark": "legal_bench-05-30-2025",
-            "model": "Gemini 2.5 Flash Preview (Thinking)",
-            "company": "Google",
-            "accuracy": 81.8,
-            "cost_input": "$0.15",
-            "cost_output": "$3.50",
-            "latency": "2.66 s"
-        },
-        {
-            "benchmark": "legal_bench-05-30-2025",
-            "model": "o1 Preview",
-            "company": "Openai",
-            "accuracy": 81.7,
-            "cost_input": "$15.00",
-            "cost_output": "$60.00",
-            "latency": "10.33 s"
-        },
-        {
-            "benchmark": "legal_bench-05-30-2025",
-            "model": "Grok 3 Mini Fast Low Reasoning",
-            "company": "xAI",
-            "accuracy": 81.6,
-            "cost_input": "$0.60",
-            "cost_output": "$4.00",
-            "latency": "3.38 s"
-        },
-        {
-            "benchmark": "legal_bench-05-30-2025",
-            "model": "Claude Opus 4 (Nonthinking)",
-            "company": "Anthropic",
-            "accuracy": 81.6,
-            "cost_input": "$15.00",
-            "cost_output": "$75.00",
-            "latency": "3.39 s"
-        },
-        {
-            "benchmark": "mgsm-2025-05-30",
-            "model": "Claude Opus 4 (Nonthinking)",
-            "company": "Anthropic",
-            "accuracy": 93.8,
-            "cost_input": "$15.00",
-            "cost_output": "$75.00",
-            "latency": "9.16 s"
-        },
-        {
-            "benchmark": "mgsm-2025-05-30",
-            "model": "o4 Mini",
-            "company": "Openai",
-            "accuracy": 93.4,
-            "cost_input": "$1.10",
-            "cost_output": "$4.40",
-            "latency": "7.45 s"
-        },
-        {
-            "benchmark": "mgsm-2025-05-30",
-            "model": "Claude Sonnet 4 (Nonthinking)",
-            "company": "Anthropic",
-            "accuracy": 92.9,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "5.85 s"
-        },
-        {
-            "benchmark": "mgsm-2025-05-30",
-            "model": "Claude 3.7 Sonnet (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 92.8,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "21.83 s"
-        },
-        {
-            "benchmark": "mgsm-2025-05-30",
-            "model": "Qwen 3 (235B)",
-            "company": "Alibaba",
-            "accuracy": 92.7,
-            "cost_input": "$0.22",
-            "cost_output": "$0.88",
-            "latency": "32.56 s"
-        },
-        {
-            "benchmark": "mgsm-2025-05-30",
-            "model": "Claude 3.5 Sonnet Latest",
-            "company": "Anthropic",
-            "accuracy": 92.5,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "3.86 s"
-        },
-        {
-            "benchmark": "mgsm-2025-05-30",
-            "model": "DeepSeek V3",
-            "company": "Deepseek",
-            "accuracy": 92.5,
-            "cost_input": "$0.90",
-            "cost_output": "$0.90",
-            "latency": "16.62 s"
-        },
-        {
-            "benchmark": "mgsm-2025-05-30",
-            "model": "Llama 4 Maverick",
-            "company": "Meta",
-            "accuracy": 92.5,
-            "cost_input": "$0.27",
-            "cost_output": "$0.85",
-            "latency": "2.70 s"
-        },
-        {
-            "benchmark": "mgsm-2025-05-30",
-            "model": "DeepSeek R1",
-            "company": "Deepseek",
-            "accuracy": 92.4,
-            "cost_input": "$8.00",
-            "cost_output": "$8.00",
-            "latency": "10.13 s"
-        },
-        {
-            "benchmark": "mgsm-2025-05-30",
-            "model": "Claude 3.7 Sonnet (Nonthinking)",
-            "company": "Anthropic",
-            "accuracy": 92.4,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "4.68 s"
-        },
-        {
-            "benchmark": "finance_agent",
-            "model": "o3",
-            "company": "Openai",
-            "accuracy": 48.3,
-            "cost_input": "$0.74",
-            "cost_output": "N/A",
-            "latency": "180.18 s"
-        },
-        {
-            "benchmark": "finance_agent",
-            "model": "Claude Sonnet 4 (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 44.5,
-            "cost_input": "$0.85",
-            "cost_output": "N/A",
-            "latency": "136.75 s"
-        },
-        {
-            "benchmark": "finance_agent",
-            "model": "Claude 3.7 Sonnet (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 44.1,
-            "cost_input": "$1.05",
-            "cost_output": "N/A",
-            "latency": "156.21 s"
-        },
-        {
-            "benchmark": "finance_agent",
-            "model": "Claude Sonnet 4 (Nonthinking)",
-            "company": "Anthropic",
-            "accuracy": 43.5,
-            "cost_input": "$0.89",
-            "cost_output": "N/A",
-            "latency": "105.20 s"
-        },
-        {
-            "benchmark": "finance_agent",
-            "model": "Claude 3.7 Sonnet (Nonthinking)",
-            "company": "Anthropic",
-            "accuracy": 42.9,
-            "cost_input": "$0.99",
-            "cost_output": "N/A",
-            "latency": "124.60 s"
-        },
-        {
-            "benchmark": "finance_agent",
-            "model": "o4 Mini",
-            "company": "Openai",
-            "accuracy": 36.5,
-            "cost_input": "$0.28",
-            "cost_output": "N/A",
-            "latency": "162.14 s"
-        },
-        {
-            "benchmark": "finance_agent",
-            "model": "Grok 3 Mini Fast High Reasoning",
-            "company": "xAI",
-            "accuracy": 31.7,
-            "cost_input": "$0.13",
-            "cost_output": "N/A",
-            "latency": "270.68 s"
-        },
-        {
-            "benchmark": "finance_agent",
-            "model": "Gemini 2.5 Pro Preview",
-            "company": "Google",
-            "accuracy": 29.4,
-            "cost_input": "$0.22",
-            "cost_output": "N/A",
-            "latency": "80.21 s"
-        },
-        {
-            "benchmark": "finance_agent",
-            "model": "GPT 4.1",
-            "company": "Openai",
-            "accuracy": 24.6,
-            "cost_input": "$0.24",
-            "cost_output": "N/A",
-            "latency": "66.47 s"
-        },
-        {
-            "benchmark": "finance_agent",
-            "model": "Grok 3 Beta",
-            "company": "xAI",
-            "accuracy": 24.1,
-            "cost_input": "$0.44",
-            "cost_output": "N/A",
-            "latency": "64.48 s"
-        },
-        {
-            "benchmark": "lcb-06-09-2025",
-            "model": "o4 Mini",
-            "company": "Openai",
-            "accuracy": 66.5,
-            "cost_input": "$1.10",
-            "cost_output": "$4.40",
-            "latency": "32.84 s"
-        },
-        {
-            "benchmark": "lcb-06-09-2025",
-            "model": "o3",
-            "company": "Openai",
-            "accuracy": 63.2,
-            "cost_input": "$2.00",
-            "cost_output": "$8.00",
-            "latency": "63.95 s"
-        },
-        {
-            "benchmark": "lcb-06-09-2025",
-            "model": "Claude Opus 4 (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 63.1,
-            "cost_input": "$15.00",
-            "cost_output": "$75.00",
-            "latency": "93.54 s"
-        },
-        {
-            "benchmark": "lcb-06-09-2025",
-            "model": "Gemini 2.5 Pro Preview",
-            "company": "Google",
-            "accuracy": 61.9,
-            "cost_input": "$1.25",
-            "cost_output": "$10.00",
-            "latency": "164.66 s"
-        },
-        {
-            "benchmark": "lcb-06-09-2025",
-            "model": "o3 Mini",
-            "company": "Openai",
-            "accuracy": 59.8,
-            "cost_input": "$1.10",
-            "cost_output": "$4.40",
-            "latency": "53.80 s"
-        },
-        {
-            "benchmark": "lcb-06-09-2025",
-            "model": "DeepSeek R1",
-            "company": "Deepseek",
-            "accuracy": 58.7,
-            "cost_input": "$8.00",
-            "cost_output": "$8.00",
-            "latency": "86.07 s"
-        },
-        {
-            "benchmark": "lcb-06-09-2025",
-            "model": "Grok 3 Mini Fast High Reasoning",
-            "company": "xAI",
-            "accuracy": 57.9,
-            "cost_input": "$0.60",
-            "cost_output": "$4.00",
-            "latency": "213.66 s"
-        },
-        {
-            "benchmark": "lcb-06-09-2025",
-            "model": "Grok 3 Mini Fast Low Reasoning",
-            "company": "xAI",
-            "accuracy": 56.9,
-            "cost_input": "$0.60",
-            "cost_output": "$4.00",
-            "latency": "30.71 s"
-        },
-        {
-            "benchmark": "lcb-06-09-2025",
-            "model": "Claude Opus 4 (Nonthinking)",
-            "company": "Anthropic",
-            "accuracy": 56.4,
-            "cost_input": "$15.00",
-            "cost_output": "$75.00",
-            "latency": "14.78 s"
-        },
-        {
-            "benchmark": "lcb-06-09-2025",
-            "model": "DeepSeek V3 (03/24/2025)",
-            "company": "Deepseek",
-            "accuracy": 56.0,
-            "cost_input": "$1.20",
-            "cost_output": "$1.20",
-            "latency": "26.93 s"
-        },
-        {
-            "benchmark": "tax_eval_v2-05-30-2025",
-            "model": "o3",
-            "company": "Openai",
-            "accuracy": 79.0,
-            "cost_input": "$2.00",
-            "cost_output": "$8.00",
-            "latency": "25.18 s"
-        },
-        {
-            "benchmark": "tax_eval_v2-05-30-2025",
-            "model": "Grok 3 Beta",
-            "company": "xAI",
-            "accuracy": 78.8,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "13.11 s"
-        },
-        {
-            "benchmark": "tax_eval_v2-05-30-2025",
-            "model": "o4 Mini",
-            "company": "Openai",
-            "accuracy": 78.8,
-            "cost_input": "$1.10",
-            "cost_output": "$4.40",
-            "latency": "15.25 s"
-        },
-        {
-            "benchmark": "tax_eval_v2-05-30-2025",
-            "model": "o1",
-            "company": "Openai",
-            "accuracy": 78.6,
-            "cost_input": "$15.00",
-            "cost_output": "$60.00",
-            "latency": "19.19 s"
-        },
-        {
-            "benchmark": "tax_eval_v2-05-30-2025",
-            "model": "Claude 3.7 Sonnet (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 78.4,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "43.26 s"
-        },
-        {
-            "benchmark": "tax_eval_v2-05-30-2025",
-            "model": "GPT 4.1",
-            "company": "Openai",
-            "accuracy": 78.4,
-            "cost_input": "$2.00",
-            "cost_output": "$8.00",
-            "latency": "8.03 s"
-        },
-        {
-            "benchmark": "tax_eval_v2-05-30-2025",
-            "model": "GPT 4o (2024-11-20)",
-            "company": "Openai",
-            "accuracy": 78.1,
-            "cost_input": "$2.50",
-            "cost_output": "$10.00",
-            "latency": "5.83 s"
-        },
-        {
-            "benchmark": "tax_eval_v2-05-30-2025",
-            "model": "Gemini 2.5 Pro Exp",
-            "company": "Google",
-            "accuracy": 77.1,
-            "cost_input": "$1.25",
-            "cost_output": "$10.00",
-            "latency": "22.04 s"
-        },
-        {
-            "benchmark": "tax_eval_v2-05-30-2025",
-            "model": "DeepSeek R1",
-            "company": "Deepseek",
-            "accuracy": 76.7,
-            "cost_input": "$8.00",
-            "cost_output": "$8.00",
-            "latency": "162.88 s"
-        },
-        {
-            "benchmark": "tax_eval_v2-05-30-2025",
-            "model": "Grok 3 Mini Fast Low Reasoning",
-            "company": "xAI",
-            "accuracy": 76.5,
-            "cost_input": "$0.60",
-            "cost_output": "$4.00",
-            "latency": "11.74 s"
-        },
-        {
-            "benchmark": "mortgage_tax-05-30-2025",
-            "model": "Claude 3.7 Sonnet (Nonthinking)",
-            "company": "Anthropic",
-            "accuracy": 80.6,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "5.67 s"
-        },
-        {
-            "benchmark": "mortgage_tax-05-30-2025",
-            "model": "Claude 3.7 Sonnet (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 79.2,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "13.58 s"
-        },
-        {
-            "benchmark": "mortgage_tax-05-30-2025",
-            "model": "GPT 4.1",
-            "company": "Openai",
-            "accuracy": 79.0,
-            "cost_input": "$2.00",
-            "cost_output": "$8.00",
-            "latency": "5.03 s"
-        },
-        {
-            "benchmark": "mortgage_tax-05-30-2025",
-            "model": "Gemini 2.5 Pro Exp",
-            "company": "Google",
-            "accuracy": 78.8,
-            "cost_input": "$1.25",
-            "cost_output": "$10.00",
-            "latency": "8.91 s"
-        },
-        {
-            "benchmark": "mortgage_tax-05-30-2025",
-            "model": "o3",
-            "company": "Openai",
-            "accuracy": 78.4,
-            "cost_input": "$2.00",
-            "cost_output": "$8.00",
-            "latency": "21.22 s"
-        },
-        {
-            "benchmark": "mortgage_tax-05-30-2025",
-            "model": "Claude 3.5 Sonnet Latest",
-            "company": "Anthropic",
-            "accuracy": 78.1,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "4.22 s"
-        },
-        {
-            "benchmark": "mortgage_tax-05-30-2025",
-            "model": "GPT 4.1 Mini",
-            "company": "Openai",
-            "accuracy": 77.7,
-            "cost_input": "$0.40",
-            "cost_output": "$1.60",
-            "latency": "4.60 s"
-        },
-        {
-            "benchmark": "mortgage_tax-05-30-2025",
-            "model": "o4 Mini",
-            "company": "Openai",
-            "accuracy": 77.1,
-            "cost_input": "$1.10",
-            "cost_output": "$4.40",
-            "latency": "13.00 s"
-        },
-        {
-            "benchmark": "mortgage_tax-05-30-2025",
-            "model": "GPT 4o (2024-08-06)",
-            "company": "Openai",
-            "accuracy": 75.2,
-            "cost_input": "$2.50",
-            "cost_output": "$10.00",
-            "latency": "7.36 s"
-        },
-        {
-            "benchmark": "mortgage_tax-05-30-2025",
-            "model": "Mistral Small 3.1 (03/2025)",
-            "company": "Mistral",
-            "accuracy": 75.0,
-            "cost_input": "$0.07",
-            "cost_output": "$0.30",
-            "latency": "8.31 s"
-        },
         {
             "benchmark": "corp_fin_v2-05-30-2025",
             "model": "GPT 4.1",
@@ -1088,7 +8,7 @@
             "accuracy": 71.2,
             "cost_input": "$2.00",
             "cost_output": "$8.00",
-            "latency": "10.33 s"
+            "latency": 10.33
         },
         {
             "benchmark": "corp_fin_v2-05-30-2025",
@@ -1097,7 +17,7 @@
             "accuracy": 71.0,
             "cost_input": "$2.00",
             "cost_output": "$8.00",
-            "latency": "19.13 s"
+            "latency": 19.13
         },
         {
             "benchmark": "corp_fin_v2-05-30-2025",
@@ -1106,7 +26,7 @@
             "accuracy": 70.1,
             "cost_input": "$1.10",
             "cost_output": "$4.40",
-            "latency": "17.50 s"
+            "latency": 17.5
         },
         {
             "benchmark": "corp_fin_v2-05-30-2025",
@@ -1115,7 +35,7 @@
             "accuracy": 69.1,
             "cost_input": "$3.00",
             "cost_output": "$15.00",
-            "latency": "23.86 s"
+            "latency": 23.86
         },
         {
             "benchmark": "corp_fin_v2-05-30-2025",
@@ -1124,7 +44,7 @@
             "accuracy": 68.6,
             "cost_input": "$0.60",
             "cost_output": "$4.00",
-            "latency": "14.12 s"
+            "latency": 14.12
         },
         {
             "benchmark": "corp_fin_v2-05-30-2025",
@@ -1133,7 +53,7 @@
             "accuracy": 68.4,
             "cost_input": "$1.25",
             "cost_output": "$10.00",
-            "latency": "17.99 s"
+            "latency": 17.99
         },
         {
             "benchmark": "corp_fin_v2-05-30-2025",
@@ -1142,7 +62,7 @@
             "accuracy": 68.0,
             "cost_input": "$3.00",
             "cost_output": "$15.00",
-            "latency": "22.33 s"
+            "latency": 22.33
         },
         {
             "benchmark": "corp_fin_v2-05-30-2025",
@@ -1151,7 +71,7 @@
             "accuracy": 67.3,
             "cost_input": "$3.00",
             "cost_output": "$15.00",
-            "latency": "227.37 s"
+            "latency": 227.37
         },
         {
             "benchmark": "corp_fin_v2-05-30-2025",
@@ -1160,7 +80,7 @@
             "accuracy": 66.0,
             "cost_input": "$0.60",
             "cost_output": "$4.00",
-            "latency": "10.42 s"
+            "latency": 10.42
         },
         {
             "benchmark": "corp_fin_v2-05-30-2025",
@@ -1169,7 +89,457 @@
             "accuracy": 65.8,
             "cost_input": "$0.40",
             "cost_output": "$1.60",
-            "latency": "6.56 s"
+            "latency": 6.56
+        },
+        {
+            "benchmark": "legal_bench-05-30-2025",
+            "model": "Gemini 2.5 Pro Exp",
+            "company": "Google",
+            "accuracy": 83.6,
+            "cost_input": "$1.25",
+            "cost_output": "$10.00",
+            "latency": 3.51
+        },
+        {
+            "benchmark": "legal_bench-05-30-2025",
+            "model": "Gemini 2.5 Flash Preview (Nonthinking)",
+            "company": "Google",
+            "accuracy": 82.8,
+            "cost_input": "$0.15",
+            "cost_output": "$0.60",
+            "latency": 0.43
+        },
+        {
+            "benchmark": "legal_bench-05-30-2025",
+            "model": "o3",
+            "company": "Openai",
+            "accuracy": 82.5,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 5.14
+        },
+        {
+            "benchmark": "legal_bench-05-30-2025",
+            "model": "Grok 3 Mini Fast High Reasoning",
+            "company": "xAI",
+            "accuracy": 82.0,
+            "cost_input": "$0.60",
+            "cost_output": "$4.00",
+            "latency": 4.92
+        },
+        {
+            "benchmark": "legal_bench-05-30-2025",
+            "model": "Grok 3 Beta",
+            "company": "xAI",
+            "accuracy": 82.0,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 0.44
+        },
+        {
+            "benchmark": "legal_bench-05-30-2025",
+            "model": "GPT 4.1",
+            "company": "Openai",
+            "accuracy": 81.9,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 0.42
+        },
+        {
+            "benchmark": "legal_bench-05-30-2025",
+            "model": "Gemini 2.5 Flash Preview (Thinking)",
+            "company": "Google",
+            "accuracy": 81.8,
+            "cost_input": "$0.15",
+            "cost_output": "$3.50",
+            "latency": 2.66
+        },
+        {
+            "benchmark": "legal_bench-05-30-2025",
+            "model": "o1 Preview",
+            "company": "Openai",
+            "accuracy": 81.7,
+            "cost_input": "$15.00",
+            "cost_output": "$60.00",
+            "latency": 10.33
+        },
+        {
+            "benchmark": "legal_bench-05-30-2025",
+            "model": "Grok 3 Mini Fast Low Reasoning",
+            "company": "xAI",
+            "accuracy": 81.6,
+            "cost_input": "$0.60",
+            "cost_output": "$4.00",
+            "latency": 3.38
+        },
+        {
+            "benchmark": "legal_bench-05-30-2025",
+            "model": "Claude Opus 4 (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 81.6,
+            "cost_input": "$15.00",
+            "cost_output": "$75.00",
+            "latency": 3.39
+        },
+        {
+            "benchmark": "mgsm-2025-05-30",
+            "model": "Claude Opus 4 (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 93.8,
+            "cost_input": "$15.00",
+            "cost_output": "$75.00",
+            "latency": 9.16
+        },
+        {
+            "benchmark": "mgsm-2025-05-30",
+            "model": "o4 Mini",
+            "company": "Openai",
+            "accuracy": 93.4,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 7.45
+        },
+        {
+            "benchmark": "mgsm-2025-05-30",
+            "model": "Claude Sonnet 4 (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 92.9,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 5.85
+        },
+        {
+            "benchmark": "mgsm-2025-05-30",
+            "model": "Claude 3.7 Sonnet (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 92.8,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 21.83
+        },
+        {
+            "benchmark": "mgsm-2025-05-30",
+            "model": "Qwen 3 (235B)",
+            "company": "Alibaba",
+            "accuracy": 92.7,
+            "cost_input": "$0.22",
+            "cost_output": "$0.88",
+            "latency": 32.56
+        },
+        {
+            "benchmark": "mgsm-2025-05-30",
+            "model": "Claude 3.5 Sonnet Latest",
+            "company": "Anthropic",
+            "accuracy": 92.5,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 3.86
+        },
+        {
+            "benchmark": "mgsm-2025-05-30",
+            "model": "DeepSeek V3",
+            "company": "Deepseek",
+            "accuracy": 92.5,
+            "cost_input": "$0.90",
+            "cost_output": "$0.90",
+            "latency": 16.62
+        },
+        {
+            "benchmark": "mgsm-2025-05-30",
+            "model": "Llama 4 Maverick",
+            "company": "Meta",
+            "accuracy": 92.5,
+            "cost_input": "$0.27",
+            "cost_output": "$0.85",
+            "latency": 2.7
+        },
+        {
+            "benchmark": "mgsm-2025-05-30",
+            "model": "DeepSeek R1",
+            "company": "Deepseek",
+            "accuracy": 92.4,
+            "cost_input": "$8.00",
+            "cost_output": "$8.00",
+            "latency": 10.13
+        },
+        {
+            "benchmark": "mgsm-2025-05-30",
+            "model": "Claude 3.7 Sonnet (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 92.4,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 4.68
+        },
+        {
+            "benchmark": "math500-05-30-2025",
+            "model": "Gemini 2.5 Pro Exp",
+            "company": "Google",
+            "accuracy": 95.2,
+            "cost_input": "$1.25",
+            "cost_output": "$10.00",
+            "latency": 25.83
+        },
+        {
+            "benchmark": "math500-05-30-2025",
+            "model": "o3",
+            "company": "Openai",
+            "accuracy": 94.6,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 16.59
+        },
+        {
+            "benchmark": "math500-05-30-2025",
+            "model": "Qwen 3 (235B)",
+            "company": "Alibaba",
+            "accuracy": 94.6,
+            "cost_input": "$0.22",
+            "cost_output": "$0.88",
+            "latency": 142.75
+        },
+        {
+            "benchmark": "math500-05-30-2025",
+            "model": "Grok 3 Mini Fast High Reasoning",
+            "company": "xAI",
+            "accuracy": 94.2,
+            "cost_input": "$0.60",
+            "cost_output": "$4.00",
+            "latency": 22.77
+        },
+        {
+            "benchmark": "math500-05-30-2025",
+            "model": "o4 Mini",
+            "company": "Openai",
+            "accuracy": 94.2,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 12.54
+        },
+        {
+            "benchmark": "math500-05-30-2025",
+            "model": "Claude Sonnet 4 (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 93.8,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 63.47
+        },
+        {
+            "benchmark": "math500-05-30-2025",
+            "model": "DeepSeek R1",
+            "company": "Deepseek",
+            "accuracy": 92.2,
+            "cost_input": "$8.00",
+            "cost_output": "$8.00",
+            "latency": 156.47
+        },
+        {
+            "benchmark": "math500-05-30-2025",
+            "model": "o3 Mini",
+            "company": "Openai",
+            "accuracy": 91.8,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 14.36
+        },
+        {
+            "benchmark": "math500-05-30-2025",
+            "model": "Gemini 2.5 Flash Preview (Thinking)",
+            "company": "Google",
+            "accuracy": 91.8,
+            "cost_input": "$0.15",
+            "cost_output": "$3.50",
+            "latency": 23.66
+        },
+        {
+            "benchmark": "math500-05-30-2025",
+            "model": "Claude 3.7 Sonnet (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 91.6,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 94.24
+        },
+        {
+            "benchmark": "lcb-06-09-2025",
+            "model": "o4 Mini",
+            "company": "Openai",
+            "accuracy": 66.5,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 32.84
+        },
+        {
+            "benchmark": "lcb-06-09-2025",
+            "model": "o3",
+            "company": "Openai",
+            "accuracy": 63.2,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 63.95
+        },
+        {
+            "benchmark": "lcb-06-09-2025",
+            "model": "Claude Opus 4 (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 63.1,
+            "cost_input": "$15.00",
+            "cost_output": "$75.00",
+            "latency": 93.54
+        },
+        {
+            "benchmark": "lcb-06-09-2025",
+            "model": "Gemini 2.5 Pro Preview",
+            "company": "Google",
+            "accuracy": 61.9,
+            "cost_input": "$1.25",
+            "cost_output": "$10.00",
+            "latency": 164.66
+        },
+        {
+            "benchmark": "lcb-06-09-2025",
+            "model": "o3 Mini",
+            "company": "Openai",
+            "accuracy": 59.8,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 53.8
+        },
+        {
+            "benchmark": "lcb-06-09-2025",
+            "model": "DeepSeek R1",
+            "company": "Deepseek",
+            "accuracy": 58.7,
+            "cost_input": "$8.00",
+            "cost_output": "$8.00",
+            "latency": 86.07
+        },
+        {
+            "benchmark": "lcb-06-09-2025",
+            "model": "Grok 3 Mini Fast High Reasoning",
+            "company": "xAI",
+            "accuracy": 57.9,
+            "cost_input": "$0.60",
+            "cost_output": "$4.00",
+            "latency": 213.66
+        },
+        {
+            "benchmark": "lcb-06-09-2025",
+            "model": "Grok 3 Mini Fast Low Reasoning",
+            "company": "xAI",
+            "accuracy": 56.9,
+            "cost_input": "$0.60",
+            "cost_output": "$4.00",
+            "latency": 30.71
+        },
+        {
+            "benchmark": "lcb-06-09-2025",
+            "model": "Claude Opus 4 (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 56.4,
+            "cost_input": "$15.00",
+            "cost_output": "$75.00",
+            "latency": 14.78
+        },
+        {
+            "benchmark": "lcb-06-09-2025",
+            "model": "DeepSeek V3 (03/24/2025)",
+            "company": "Deepseek",
+            "accuracy": 56.0,
+            "cost_input": "$1.20",
+            "cost_output": "$1.20",
+            "latency": 26.93
+        },
+        {
+            "benchmark": "mmlu_pro-05-30-2025",
+            "model": "Claude Opus 4 (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 86.1,
+            "cost_input": "$15.00",
+            "cost_output": "$75.00",
+            "latency": 10.41
+        },
+        {
+            "benchmark": "mmlu_pro-05-30-2025",
+            "model": "o3",
+            "company": "Openai",
+            "accuracy": 85.6,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 16.74
+        },
+        {
+            "benchmark": "mmlu_pro-05-30-2025",
+            "model": "Gemini 2.5 Pro Exp",
+            "company": "Google",
+            "accuracy": 84.1,
+            "cost_input": "$1.25",
+            "cost_output": "$10.00",
+            "latency": 18.46
+        },
+        {
+            "benchmark": "mmlu_pro-05-30-2025",
+            "model": "Claude Sonnet 4 (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 83.8,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 47.09
+        },
+        {
+            "benchmark": "mmlu_pro-05-30-2025",
+            "model": "o1",
+            "company": "Openai",
+            "accuracy": 83.5,
+            "cost_input": "$15.00",
+            "cost_output": "$60.00",
+            "latency": 26.87
+        },
+        {
+            "benchmark": "mmlu_pro-05-30-2025",
+            "model": "Claude 3.7 Sonnet (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 82.7,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 31.74
+        },
+        {
+            "benchmark": "mmlu_pro-05-30-2025",
+            "model": "Grok 3 Mini Fast High Reasoning",
+            "company": "xAI",
+            "accuracy": 81.4,
+            "cost_input": "$0.60",
+            "cost_output": "$4.00",
+            "latency": 16.89
+        },
+        {
+            "benchmark": "mmlu_pro-05-30-2025",
+            "model": "Claude 3.7 Sonnet (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 80.7,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 6.3
+        },
+        {
+            "benchmark": "mmlu_pro-05-30-2025",
+            "model": "o4 Mini",
+            "company": "Openai",
+            "accuracy": 80.6,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 10.44
+        },
+        {
+            "benchmark": "mmlu_pro-05-30-2025",
+            "model": "GPT 4.1",
+            "company": "Openai",
+            "accuracy": 80.5,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 8.18
         },
         {
             "benchmark": "contract_law-05-30-2025",
@@ -1178,7 +548,7 @@
             "accuracy": 75.2,
             "cost_input": "$3.50",
             "cost_output": "$3.50",
-            "latency": "2.19 s"
+            "latency": 2.19
         },
         {
             "benchmark": "contract_law-05-30-2025",
@@ -1187,7 +557,7 @@
             "accuracy": 74.0,
             "cost_input": "$15.00",
             "cost_output": "$75.00",
-            "latency": "5.97 s"
+            "latency": 5.97
         },
         {
             "benchmark": "contract_law-05-30-2025",
@@ -1196,7 +566,7 @@
             "accuracy": 73.6,
             "cost_input": "$1.20",
             "cost_output": "$1.20",
-            "latency": "1.01 s"
+            "latency": 1.01
         },
         {
             "benchmark": "contract_law-05-30-2025",
@@ -1205,7 +575,7 @@
             "accuracy": 73.0,
             "cost_input": "$3.00",
             "cost_output": "$15.00",
-            "latency": "8.87 s"
+            "latency": 8.87
         },
         {
             "benchmark": "contract_law-05-30-2025",
@@ -1214,7 +584,7 @@
             "accuracy": 72.8,
             "cost_input": "$3.00",
             "cost_output": "$12.00",
-            "latency": "4.01 s"
+            "latency": 4.01
         },
         {
             "benchmark": "contract_law-05-30-2025",
@@ -1223,7 +593,7 @@
             "accuracy": 72.7,
             "cost_input": "$15.00",
             "cost_output": "$60.00",
-            "latency": "11.26 s"
+            "latency": 11.26
         },
         {
             "benchmark": "contract_law-05-30-2025",
@@ -1232,7 +602,7 @@
             "accuracy": 72.4,
             "cost_input": "$0.15",
             "cost_output": "$0.60",
-            "latency": "1.92 s"
+            "latency": 1.92
         },
         {
             "benchmark": "contract_law-05-30-2025",
@@ -1241,7 +611,7 @@
             "accuracy": 72.4,
             "cost_input": "$3.00",
             "cost_output": "$15.00",
-            "latency": "2.91 s"
+            "latency": 2.91
         },
         {
             "benchmark": "contract_law-05-30-2025",
@@ -1250,7 +620,7 @@
             "accuracy": 71.8,
             "cost_input": "$10.00",
             "cost_output": "$30.00",
-            "latency": "3.26 s"
+            "latency": 3.26
         },
         {
             "benchmark": "contract_law-05-30-2025",
@@ -1259,97 +629,547 @@
             "accuracy": 71.5,
             "cost_input": "$0.40",
             "cost_output": "$1.60",
-            "latency": "1.03 s"
+            "latency": 1.03
         },
         {
-            "benchmark": "gpqa-05-30-2025",
+            "benchmark": "finance_agent-05-30-2025",
             "model": "o3",
             "company": "Openai",
-            "accuracy": 83.6,
-            "cost_input": "$2.00",
-            "cost_output": "$8.00",
-            "latency": "65.78 s"
+            "accuracy": 48.3,
+            "cost_input": "$0.74",
+            "cost_output": "N/A",
+            "latency": 180.18
         },
         {
-            "benchmark": "gpqa-05-30-2025",
-            "model": "Gemini 2.5 Pro Exp",
-            "company": "Google",
-            "accuracy": 80.3,
-            "cost_input": "$1.25",
-            "cost_output": "$10.00",
-            "latency": "41.10 s"
-        },
-        {
-            "benchmark": "gpqa-05-30-2025",
-            "model": "Grok 3 Mini Fast High Reasoning",
-            "company": "xAI",
-            "accuracy": 79.0,
-            "cost_input": "$0.60",
-            "cost_output": "$4.00",
-            "latency": "40.62 s"
-        },
-        {
-            "benchmark": "gpqa-05-30-2025",
-            "model": "Claude 3.7 Sonnet (Thinking)",
-            "company": "Anthropic",
-            "accuracy": 75.3,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "155.02 s"
-        },
-        {
-            "benchmark": "gpqa-05-30-2025",
-            "model": "o3 Mini",
-            "company": "Openai",
-            "accuracy": 75.0,
-            "cost_input": "$1.10",
-            "cost_output": "$4.40",
-            "latency": "99.98 s"
-        },
-        {
-            "benchmark": "gpqa-05-30-2025",
-            "model": "o4 Mini",
-            "company": "Openai",
-            "accuracy": 74.5,
-            "cost_input": "$1.10",
-            "cost_output": "$4.40",
-            "latency": "30.00 s"
-        },
-        {
-            "benchmark": "gpqa-05-30-2025",
+            "benchmark": "finance_agent-05-30-2025",
             "model": "Claude Sonnet 4 (Thinking)",
             "company": "Anthropic",
-            "accuracy": 74.5,
-            "cost_input": "$3.00",
-            "cost_output": "$15.00",
-            "latency": "118.46 s"
+            "accuracy": 44.5,
+            "cost_input": "$0.85",
+            "cost_output": "N/A",
+            "latency": 136.75
         },
         {
-            "benchmark": "gpqa-05-30-2025",
+            "benchmark": "finance_agent-05-30-2025",
+            "model": "Claude 3.7 Sonnet (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 44.1,
+            "cost_input": "$1.05",
+            "cost_output": "N/A",
+            "latency": 156.21
+        },
+        {
+            "benchmark": "finance_agent-05-30-2025",
+            "model": "Claude Sonnet 4 (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 43.5,
+            "cost_input": "$0.89",
+            "cost_output": "N/A",
+            "latency": 105.2
+        },
+        {
+            "benchmark": "finance_agent-05-30-2025",
+            "model": "Claude 3.7 Sonnet (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 42.9,
+            "cost_input": "$0.99",
+            "cost_output": "N/A",
+            "latency": 124.6
+        },
+        {
+            "benchmark": "finance_agent-05-30-2025",
+            "model": "o4 Mini",
+            "company": "Openai",
+            "accuracy": 36.5,
+            "cost_input": "$0.28",
+            "cost_output": "N/A",
+            "latency": 162.14
+        },
+        {
+            "benchmark": "finance_agent-05-30-2025",
+            "model": "Grok 3 Mini Fast High Reasoning",
+            "company": "xAI",
+            "accuracy": 31.7,
+            "cost_input": "$0.13",
+            "cost_output": "N/A",
+            "latency": 270.68
+        },
+        {
+            "benchmark": "finance_agent-05-30-2025",
+            "model": "Gemini 2.5 Pro Preview",
+            "company": "Google",
+            "accuracy": 29.4,
+            "cost_input": "$0.22",
+            "cost_output": "N/A",
+            "latency": 80.21
+        },
+        {
+            "benchmark": "finance_agent-05-30-2025",
+            "model": "GPT 4.1",
+            "company": "Openai",
+            "accuracy": 24.6,
+            "cost_input": "$0.24",
+            "cost_output": "N/A",
+            "latency": 66.47
+        },
+        {
+            "benchmark": "finance_agent-05-30-2025",
             "model": "Grok 3 Beta",
             "company": "xAI",
-            "accuracy": 73.7,
+            "accuracy": 24.1,
+            "cost_input": "$0.44",
+            "cost_output": "N/A",
+            "latency": 64.48
+        },
+        {
+            "benchmark": "finance_agent",
+            "model": "o3",
+            "company": "Openai",
+            "accuracy": 48.3,
+            "cost_input": "$0.74",
+            "cost_output": "N/A",
+            "latency": 180.18
+        },
+        {
+            "benchmark": "finance_agent",
+            "model": "Claude Sonnet 4 (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 44.5,
+            "cost_input": "$0.85",
+            "cost_output": "N/A",
+            "latency": 136.75
+        },
+        {
+            "benchmark": "finance_agent",
+            "model": "Claude 3.7 Sonnet (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 44.1,
+            "cost_input": "$1.05",
+            "cost_output": "N/A",
+            "latency": 156.21
+        },
+        {
+            "benchmark": "finance_agent",
+            "model": "Claude Sonnet 4 (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 43.5,
+            "cost_input": "$0.89",
+            "cost_output": "N/A",
+            "latency": 105.2
+        },
+        {
+            "benchmark": "finance_agent",
+            "model": "Claude 3.7 Sonnet (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 42.9,
+            "cost_input": "$0.99",
+            "cost_output": "N/A",
+            "latency": 124.6
+        },
+        {
+            "benchmark": "finance_agent",
+            "model": "o4 Mini",
+            "company": "Openai",
+            "accuracy": 36.5,
+            "cost_input": "$0.28",
+            "cost_output": "N/A",
+            "latency": 162.14
+        },
+        {
+            "benchmark": "finance_agent",
+            "model": "Grok 3 Mini Fast High Reasoning",
+            "company": "xAI",
+            "accuracy": 31.7,
+            "cost_input": "$0.13",
+            "cost_output": "N/A",
+            "latency": 270.68
+        },
+        {
+            "benchmark": "finance_agent",
+            "model": "Gemini 2.5 Pro Preview",
+            "company": "Google",
+            "accuracy": 29.4,
+            "cost_input": "$0.22",
+            "cost_output": "N/A",
+            "latency": 80.21
+        },
+        {
+            "benchmark": "finance_agent",
+            "model": "GPT 4.1",
+            "company": "Openai",
+            "accuracy": 24.6,
+            "cost_input": "$0.24",
+            "cost_output": "N/A",
+            "latency": 66.47
+        },
+        {
+            "benchmark": "finance_agent",
+            "model": "Grok 3 Beta",
+            "company": "xAI",
+            "accuracy": 24.1,
+            "cost_input": "$0.44",
+            "cost_output": "N/A",
+            "latency": 64.48
+        },
+        {
+            "benchmark": "tax_eval_v2-05-30-2025",
+            "model": "o3",
+            "company": "Openai",
+            "accuracy": 79.0,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 25.18
+        },
+        {
+            "benchmark": "tax_eval_v2-05-30-2025",
+            "model": "Grok 3 Beta",
+            "company": "xAI",
+            "accuracy": 78.8,
             "cost_input": "$3.00",
             "cost_output": "$15.00",
-            "latency": "29.91 s"
+            "latency": 13.11
         },
         {
-            "benchmark": "gpqa-05-30-2025",
+            "benchmark": "tax_eval_v2-05-30-2025",
+            "model": "o4 Mini",
+            "company": "Openai",
+            "accuracy": 78.8,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 15.25
+        },
+        {
+            "benchmark": "tax_eval_v2-05-30-2025",
             "model": "o1",
             "company": "Openai",
-            "accuracy": 73.0,
+            "accuracy": 78.6,
             "cost_input": "$15.00",
             "cost_output": "$60.00",
-            "latency": "40.18 s"
+            "latency": 19.19
         },
         {
-            "benchmark": "gpqa-05-30-2025",
+            "benchmark": "tax_eval_v2-05-30-2025",
+            "model": "Claude 3.7 Sonnet (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 78.4,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 43.26
+        },
+        {
+            "benchmark": "tax_eval_v2-05-30-2025",
+            "model": "GPT 4.1",
+            "company": "Openai",
+            "accuracy": 78.4,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 8.03
+        },
+        {
+            "benchmark": "tax_eval_v2-05-30-2025",
+            "model": "GPT 4o (2024-11-20)",
+            "company": "Openai",
+            "accuracy": 78.1,
+            "cost_input": "$2.50",
+            "cost_output": "$10.00",
+            "latency": 5.83
+        },
+        {
+            "benchmark": "tax_eval_v2-05-30-2025",
+            "model": "Gemini 2.5 Pro Exp",
+            "company": "Google",
+            "accuracy": 77.1,
+            "cost_input": "$1.25",
+            "cost_output": "$10.00",
+            "latency": 22.04
+        },
+        {
+            "benchmark": "tax_eval_v2-05-30-2025",
+            "model": "DeepSeek R1",
+            "company": "Deepseek",
+            "accuracy": 76.7,
+            "cost_input": "$8.00",
+            "cost_output": "$8.00",
+            "latency": 162.88
+        },
+        {
+            "benchmark": "tax_eval_v2-05-30-2025",
             "model": "Grok 3 Mini Fast Low Reasoning",
             "company": "xAI",
-            "accuracy": 72.7,
+            "accuracy": 76.5,
             "cost_input": "$0.60",
             "cost_output": "$4.00",
-            "latency": "14.23 s"
+            "latency": 11.74
+        },
+        {
+            "benchmark": "aime-2025-05-30",
+            "model": "o3 Mini",
+            "company": "Openai",
+            "accuracy": 86.5,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 154.65
+        },
+        {
+            "benchmark": "aime-2025-05-30",
+            "model": "Gemini 2.5 Pro Exp",
+            "company": "Google",
+            "accuracy": 85.8,
+            "cost_input": "$1.25",
+            "cost_output": "$10.00",
+            "latency": 143.91
+        },
+        {
+            "benchmark": "aime-2025-05-30",
+            "model": "o3",
+            "company": "Openai",
+            "accuracy": 85.3,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 266.18
+        },
+        {
+            "benchmark": "aime-2025-05-30",
+            "model": "Grok 3 Mini Fast High Reasoning",
+            "company": "xAI",
+            "accuracy": 85.0,
+            "cost_input": "$0.60",
+            "cost_output": "$4.00",
+            "latency": 102.25
+        },
+        {
+            "benchmark": "aime-2025-05-30",
+            "model": "Qwen 3 (235B)",
+            "company": "Alibaba",
+            "accuracy": 84.0,
+            "cost_input": "$0.22",
+            "cost_output": "$0.88",
+            "latency": 242.17
+        },
+        {
+            "benchmark": "aime-2025-05-30",
+            "model": "o4 Mini",
+            "company": "Openai",
+            "accuracy": 83.7,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 55.11
+        },
+        {
+            "benchmark": "aime-2025-05-30",
+            "model": "Claude Sonnet 4 (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 76.3,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 271.79
+        },
+        {
+            "benchmark": "aime-2025-05-30",
+            "model": "DeepSeek R1",
+            "company": "Deepseek",
+            "accuracy": 74.0,
+            "cost_input": "$8.00",
+            "cost_output": "$8.00",
+            "latency": 153.91
+        },
+        {
+            "benchmark": "aime-2025-05-30",
+            "model": "o1",
+            "company": "Openai",
+            "accuracy": 71.5,
+            "cost_input": "$15.00",
+            "cost_output": "$60.00",
+            "latency": 177.03
+        },
+        {
+            "benchmark": "aime-2025-05-30",
+            "model": "Grok 3 Mini Fast Low Reasoning",
+            "company": "xAI",
+            "accuracy": 70.6,
+            "cost_input": "$0.60",
+            "cost_output": "$4.00",
+            "latency": 31.4
+        },
+        {
+            "benchmark": "medqa-05-30-2025",
+            "model": "o1",
+            "company": "Openai",
+            "accuracy": 96.5,
+            "cost_input": "$15.00",
+            "cost_output": "$60.00",
+            "latency": 11.15
+        },
+        {
+            "benchmark": "medqa-05-30-2025",
+            "model": "o3",
+            "company": "Openai",
+            "accuracy": 96.1,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 8.51
+        },
+        {
+            "benchmark": "medqa-05-30-2025",
+            "model": "o4 Mini",
+            "company": "Openai",
+            "accuracy": 96.0,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 6.6
+        },
+        {
+            "benchmark": "medqa-05-30-2025",
+            "model": "o3 Mini",
+            "company": "Openai",
+            "accuracy": 94.8,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 8.39
+        },
+        {
+            "benchmark": "medqa-05-30-2025",
+            "model": "Gemini 2.5 Pro Exp",
+            "company": "Google",
+            "accuracy": 93.1,
+            "cost_input": "$1.25",
+            "cost_output": "$10.00",
+            "latency": 10.7
+        },
+        {
+            "benchmark": "medqa-05-30-2025",
+            "model": "o1 Preview",
+            "company": "Openai",
+            "accuracy": 93.0,
+            "cost_input": "$15.00",
+            "cost_output": "$60.00",
+            "latency": 16.44
+        },
+        {
+            "benchmark": "medqa-05-30-2025",
+            "model": "Claude Opus 4 (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 92.9,
+            "cost_input": "$15.00",
+            "cost_output": "$75.00",
+            "latency": 11.93
+        },
+        {
+            "benchmark": "medqa-05-30-2025",
+            "model": "Claude Sonnet 4 (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 92.7,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 26.99
+        },
+        {
+            "benchmark": "medqa-05-30-2025",
+            "model": "Grok 2",
+            "company": "xAI",
+            "accuracy": 92.3,
+            "cost_input": "$2.00",
+            "cost_output": "$10.00",
+            "latency": 4.09
+        },
+        {
+            "benchmark": "medqa-05-30-2025",
+            "model": "GPT 4.1",
+            "company": "Openai",
+            "accuracy": 91.2,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 3.08
+        },
+        {
+            "benchmark": "mmmu-05-30-2025",
+            "model": "Gemini 2.5 Pro Exp",
+            "company": "Google",
+            "accuracy": 81.5,
+            "cost_input": "$1.25",
+            "cost_output": "$10.00",
+            "latency": 24.15
+        },
+        {
+            "benchmark": "mmmu-05-30-2025",
+            "model": "o3",
+            "company": "Openai",
+            "accuracy": 80.1,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 39.27
+        },
+        {
+            "benchmark": "mmmu-05-30-2025",
+            "model": "o4 Mini",
+            "company": "Openai",
+            "accuracy": 79.7,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 19.72
+        },
+        {
+            "benchmark": "mmmu-05-30-2025",
+            "model": "o1",
+            "company": "Openai",
+            "accuracy": 77.7,
+            "cost_input": "$15.00",
+            "cost_output": "$60.00",
+            "latency": 26.41
+        },
+        {
+            "benchmark": "mmmu-05-30-2025",
+            "model": "Claude 3.7 Sonnet (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 76.0,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 69.58
+        },
+        {
+            "benchmark": "mmmu-05-30-2025",
+            "model": "Claude Sonnet 4 (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 75.1,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 48.85
+        },
+        {
+            "benchmark": "mmmu-05-30-2025",
+            "model": "Claude Opus 4 (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 73.4,
+            "cost_input": "$15.00",
+            "cost_output": "$75.00",
+            "latency": 14.02
+        },
+        {
+            "benchmark": "mmmu-05-30-2025",
+            "model": "Llama 4 Maverick",
+            "company": "Meta",
+            "accuracy": 72.6,
+            "cost_input": "$0.27",
+            "cost_output": "$0.85",
+            "latency": 7.91
+        },
+        {
+            "benchmark": "mmmu-05-30-2025",
+            "model": "Claude Sonnet 4 (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 72.6,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 10.82
+        },
+        {
+            "benchmark": "mmmu-05-30-2025",
+            "model": "Gemini 2.0 Flash (001)",
+            "company": "Google",
+            "accuracy": 71.9,
+            "cost_input": "$0.10",
+            "cost_output": "$0.40",
+            "latency": 45.22
         },
         {
             "benchmark": "case_law-05-30-2025",
@@ -1358,7 +1178,7 @@
             "accuracy": 88.1,
             "cost_input": "$3.00",
             "cost_output": "$15.00",
-            "latency": "3.91 s"
+            "latency": 3.91
         },
         {
             "benchmark": "case_law-05-30-2025",
@@ -1367,7 +1187,7 @@
             "accuracy": 86.2,
             "cost_input": "$1.20",
             "cost_output": "$1.20",
-            "latency": "13.66 s"
+            "latency": 13.66
         },
         {
             "benchmark": "case_law-05-30-2025",
@@ -1376,7 +1196,7 @@
             "accuracy": 86.1,
             "cost_input": "$1.25",
             "cost_output": "$10.00",
-            "latency": "8.05 s"
+            "latency": 8.05
         },
         {
             "benchmark": "case_law-05-30-2025",
@@ -1385,7 +1205,7 @@
             "accuracy": 85.8,
             "cost_input": "$2.00",
             "cost_output": "$8.00",
-            "latency": "3.82 s"
+            "latency": 3.82
         },
         {
             "benchmark": "case_law-05-30-2025",
@@ -1394,7 +1214,7 @@
             "accuracy": 85.2,
             "cost_input": "$3.00",
             "cost_output": "$15.00",
-            "latency": "8.03 s"
+            "latency": 8.03
         },
         {
             "benchmark": "case_law-05-30-2025",
@@ -1403,7 +1223,7 @@
             "accuracy": 84.9,
             "cost_input": "$3.00",
             "cost_output": "$15.00",
-            "latency": "4.51 s"
+            "latency": 4.51
         },
         {
             "benchmark": "case_law-05-30-2025",
@@ -1412,7 +1232,7 @@
             "accuracy": 84.9,
             "cost_input": "$0.40",
             "cost_output": "$2.00",
-            "latency": "4.58 s"
+            "latency": 4.58
         },
         {
             "benchmark": "case_law-05-30-2025",
@@ -1421,7 +1241,7 @@
             "accuracy": 84.8,
             "cost_input": "$3.00",
             "cost_output": "$15.00",
-            "latency": "13.13 s"
+            "latency": 13.13
         },
         {
             "benchmark": "case_law-05-30-2025",
@@ -1430,7 +1250,7 @@
             "accuracy": 84.5,
             "cost_input": "$0.90",
             "cost_output": "$0.90",
-            "latency": "8.72 s"
+            "latency": 8.72
         },
         {
             "benchmark": "case_law-05-30-2025",
@@ -1439,7 +1259,277 @@
             "accuracy": 84.5,
             "cost_input": "$1.25",
             "cost_output": "$5.00",
-            "latency": "2.21 s"
+            "latency": 2.21
+        },
+        {
+            "benchmark": "swebench-2025-06-13",
+            "model": "Claude Sonnet 4 (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 65.0,
+            "cost_input": "$1.24",
+            "cost_output": "N/A",
+            "latency": 426.52
+        },
+        {
+            "benchmark": "swebench-2025-06-13",
+            "model": "o3",
+            "company": "Openai",
+            "accuracy": 49.8,
+            "cost_input": "$1.42",
+            "cost_output": "N/A",
+            "latency": 620.33
+        },
+        {
+            "benchmark": "swebench-2025-06-13",
+            "model": "GPT 4.1",
+            "company": "Openai",
+            "accuracy": 47.4,
+            "cost_input": "$0.45",
+            "cost_output": "N/A",
+            "latency": 173.98
+        },
+        {
+            "benchmark": "swebench-2025-06-13",
+            "model": "Gemini 2.5 Pro Preview",
+            "company": "Google",
+            "accuracy": 46.8,
+            "cost_input": "$0.88",
+            "cost_output": "N/A",
+            "latency": 540.96
+        },
+        {
+            "benchmark": "swebench-2025-06-13",
+            "model": "Gemini 2.5 Flash Preview (Nonthinking)",
+            "company": "Google",
+            "accuracy": 35.6,
+            "cost_input": "$0.11",
+            "cost_output": "N/A",
+            "latency": 251.91
+        },
+        {
+            "benchmark": "swebench-2025-06-13",
+            "model": "GPT 4.1 Mini",
+            "company": "Openai",
+            "accuracy": 34.8,
+            "cost_input": "$0.13",
+            "cost_output": "N/A",
+            "latency": 233.12
+        },
+        {
+            "benchmark": "swebench-2025-06-13",
+            "model": "o4 Mini",
+            "company": "Openai",
+            "accuracy": 33.4,
+            "cost_input": "$1.54",
+            "cost_output": "N/A",
+            "latency": 976.81
+        },
+        {
+            "benchmark": "swebench-2025-06-13",
+            "model": "GPT 4o (2024-08-06)",
+            "company": "Openai",
+            "accuracy": 27.2,
+            "cost_input": "$1.53",
+            "cost_output": "N/A",
+            "latency": 197.58
+        },
+        {
+            "benchmark": "swebench-2025-06-13",
+            "model": "Llama 4 Maverick",
+            "company": "Meta",
+            "accuracy": 18.4,
+            "cost_input": "$0.12",
+            "cost_output": "N/A",
+            "latency": 62.48
+        },
+        {
+            "benchmark": "swebench-2025-06-13",
+            "model": "Command A",
+            "company": "Cohere",
+            "accuracy": 0.2,
+            "cost_input": "$0.01",
+            "cost_output": "N/A",
+            "latency": 5.26
+        },
+        {
+            "benchmark": "mortgage_tax-05-30-2025",
+            "model": "Claude 3.7 Sonnet (Nonthinking)",
+            "company": "Anthropic",
+            "accuracy": 80.6,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 5.67
+        },
+        {
+            "benchmark": "mortgage_tax-05-30-2025",
+            "model": "Claude 3.7 Sonnet (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 79.2,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 13.58
+        },
+        {
+            "benchmark": "mortgage_tax-05-30-2025",
+            "model": "GPT 4.1",
+            "company": "Openai",
+            "accuracy": 79.0,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 5.03
+        },
+        {
+            "benchmark": "mortgage_tax-05-30-2025",
+            "model": "Gemini 2.5 Pro Exp",
+            "company": "Google",
+            "accuracy": 78.8,
+            "cost_input": "$1.25",
+            "cost_output": "$10.00",
+            "latency": 8.91
+        },
+        {
+            "benchmark": "mortgage_tax-05-30-2025",
+            "model": "o3",
+            "company": "Openai",
+            "accuracy": 78.4,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 21.22
+        },
+        {
+            "benchmark": "mortgage_tax-05-30-2025",
+            "model": "Claude 3.5 Sonnet Latest",
+            "company": "Anthropic",
+            "accuracy": 78.1,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 4.22
+        },
+        {
+            "benchmark": "mortgage_tax-05-30-2025",
+            "model": "GPT 4.1 Mini",
+            "company": "Openai",
+            "accuracy": 77.7,
+            "cost_input": "$0.40",
+            "cost_output": "$1.60",
+            "latency": 4.6
+        },
+        {
+            "benchmark": "mortgage_tax-05-30-2025",
+            "model": "o4 Mini",
+            "company": "Openai",
+            "accuracy": 77.1,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 13.0
+        },
+        {
+            "benchmark": "mortgage_tax-05-30-2025",
+            "model": "GPT 4o (2024-08-06)",
+            "company": "Openai",
+            "accuracy": 75.2,
+            "cost_input": "$2.50",
+            "cost_output": "$10.00",
+            "latency": 7.36
+        },
+        {
+            "benchmark": "mortgage_tax-05-30-2025",
+            "model": "Mistral Small 3.1 (03/2025)",
+            "company": "Mistral",
+            "accuracy": 75.0,
+            "cost_input": "$0.07",
+            "cost_output": "$0.30",
+            "latency": 8.31
+        },
+        {
+            "benchmark": "gpqa-05-30-2025",
+            "model": "o3",
+            "company": "Openai",
+            "accuracy": 83.6,
+            "cost_input": "$2.00",
+            "cost_output": "$8.00",
+            "latency": 65.78
+        },
+        {
+            "benchmark": "gpqa-05-30-2025",
+            "model": "Gemini 2.5 Pro Exp",
+            "company": "Google",
+            "accuracy": 80.3,
+            "cost_input": "$1.25",
+            "cost_output": "$10.00",
+            "latency": 41.1
+        },
+        {
+            "benchmark": "gpqa-05-30-2025",
+            "model": "Grok 3 Mini Fast High Reasoning",
+            "company": "xAI",
+            "accuracy": 79.0,
+            "cost_input": "$0.60",
+            "cost_output": "$4.00",
+            "latency": 40.62
+        },
+        {
+            "benchmark": "gpqa-05-30-2025",
+            "model": "Claude 3.7 Sonnet (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 75.3,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 155.02
+        },
+        {
+            "benchmark": "gpqa-05-30-2025",
+            "model": "o3 Mini",
+            "company": "Openai",
+            "accuracy": 75.0,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 99.98
+        },
+        {
+            "benchmark": "gpqa-05-30-2025",
+            "model": "o4 Mini",
+            "company": "Openai",
+            "accuracy": 74.5,
+            "cost_input": "$1.10",
+            "cost_output": "$4.40",
+            "latency": 30.0
+        },
+        {
+            "benchmark": "gpqa-05-30-2025",
+            "model": "Claude Sonnet 4 (Thinking)",
+            "company": "Anthropic",
+            "accuracy": 74.5,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 118.46
+        },
+        {
+            "benchmark": "gpqa-05-30-2025",
+            "model": "Grok 3 Beta",
+            "company": "xAI",
+            "accuracy": 73.7,
+            "cost_input": "$3.00",
+            "cost_output": "$15.00",
+            "latency": 29.91
+        },
+        {
+            "benchmark": "gpqa-05-30-2025",
+            "model": "o1",
+            "company": "Openai",
+            "accuracy": 73.0,
+            "cost_input": "$15.00",
+            "cost_output": "$60.00",
+            "latency": 40.18
+        },
+        {
+            "benchmark": "gpqa-05-30-2025",
+            "model": "Grok 3 Mini Fast Low Reasoning",
+            "company": "xAI",
+            "accuracy": 72.7,
+            "cost_input": "$0.60",
+            "cost_output": "$4.00",
+            "latency": 14.23
         }
     ]
 }
