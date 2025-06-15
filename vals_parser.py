@@ -3,10 +3,14 @@ from bs4 import BeautifulSoup # Used for parsing HTML content
 import json # Used for saving the extracted data into a JSON file
 import re # Used for regular expressions, specifically for cleaning the accuracy value
 from datetime import datetime # Used for adding a timestamp to the output data
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+import time
 
 # --- Configuration ---
 site_base_url = 'https://www.vals.ai' # Base URL of the website
 url_main_benchmarks_page = site_base_url + '/benchmarks' # URL of the main benchmarks listing page
+driver = webdriver.Chrome()
 
 # --- Access Main Benchmarks Page ---
 # Attempt to fetch the content of the main benchmarks page
@@ -64,6 +68,20 @@ for benchmark_url_full in list_benchmark_links:
 
     # Attempt to fetch the content of the current benchmark page
     try:
+        driver.get(benchmark_url_full)
+        time.sleep(3)
+        try:
+            accuracy_sort_btn= driver.find_element(By.XPATH, '//button[contains(text(), "Accuracy")]')
+            accuracy_sort_btn.click()
+            time.sleep(1)
+        except:
+            print("Accuracy sort button not found, continuing without sorting.")
+        try:
+            see_more_btn = driver.find_element(By.XPATH, '//button[starts-with(text(), "see ")]')
+            see_more_btn.click()
+            time.sleep(1) 
+        except:
+            pass        
         response = requests.get(benchmark_url_full)
         response.raise_for_status() # Check for bad status codes
         benchmark_html = response.text # Get the HTML content
