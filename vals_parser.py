@@ -196,7 +196,7 @@ print(f"Collected data for {len(all_benchmark_data)} model entries in total.")
 
 # Prepare the final data structure including a timestamp
 data_with_timestamp = {
-    'timestamp_utc': datetime.utcnow().isoformat(), # Add current UTC timestamp
+    'timestamp_utc': datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'), # Add current UTC timestamp
     'benchmarks': all_benchmark_data # Include the list of all extracted model data
 }
 
