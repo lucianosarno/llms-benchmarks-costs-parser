@@ -145,7 +145,12 @@ for benchmark_url_full in list_benchmark_links:
                         # Use regex to find the percentage value, which is more reliable than just stripping text
                         accuracy_match = re.search(r'\d+\.?\d*%', accuracy_text)
                         accuracy = accuracy_match.group(0) if accuracy_match else accuracy_text # Use regex match or full text
-
+                        number_string = accuracy.replace('%', '')
+                        try:
+                            accuracy = float(number_string)
+                        except ValueError:
+                            print(f"Warning: Could not convert '{number_string}' to a number.")
+                            accuracy = None                       
 
                         # Extract Costs (Input/Output) from the second direct <p> tag
                         costs_tag = p_tags[1]
