@@ -122,6 +122,32 @@ for benchmark_url_full in list_benchmark_links:
 
         print(f"  Found {len(model_entries)} model entries on {benchmark_id}.")
 
+        # --- Extract Benchmark Group ---
+        benchmark_group = "N/A" # Default value
+        try:
+            # Find the p tag with "Task Type:" text
+            task_type_p = benchmark_soup.find('p', text='Task Type:')
+            if task_type_p:
+                # Get the parent div of the "Task Type:" p tag
+                task_type_container = task_type_p.parent
+                if task_type_container:
+                    # Find the astro-island within this container
+                    astro_island = task_type_container.find('astro-island')
+                    if astro_island:
+                        # Find the first button inside the astro-island
+                        first_button = astro_island.find('button')
+                        if first_button:
+                            # Find the p tag with the specific class inside the first button
+                            # This class is 'text-zinc-900 text-sm tracking-0.2'
+                            group_p_tag = first_button.find('p', class_='text-zinc-900 text-sm tracking-0.2')
+                            if group_p_tag:
+                                benchmark_group = group_p_tag.text.strip()
+        except Exception as e:
+            print(f"  Error extracting benchmark group on {benchmark_url_full}: {e}")
+            
+        print(f"  Benchmark Group: {benchmark_group}") # Add this print for verification
+        print(f"  Benchmark ID: {benchmark_id}") # Keep this print
+
         # Loop through each individual model entry link
         for model_link in model_entries:
             try:
@@ -194,6 +220,7 @@ for benchmark_url_full in list_benchmark_links:
                         # Create a dictionary for the current model's data
                         model_data = {
                             'benchmark': benchmark_id, # Include the benchmark identifier for context
+                            'benchmark_group': benchmark_group, # Add the extracted group here                            
                             'model': model_name,
                             'company': company_name,
                             'accuracy': accuracy,
