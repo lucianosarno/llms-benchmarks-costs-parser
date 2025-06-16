@@ -1,199 +1,231 @@
-import requests # Used for making HTTP requests to fetch web pages
-from bs4 import BeautifulSoup # Used for parsing HTML content
-import json # Used for saving the extracted data into a JSON file
-import re # Used for regular expressions, specifically for cleaning the accuracy value
-from datetime import datetime # Used for adding a timestamp to the output data
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-import time
-from selenium.webdriver.common.by import By
+import requests # Library for making HTTP requests
+from bs4 import BeautifulSoup # Library for parsing HTML content
+import json # Library for working with JSON data
+import re # Library for using regular expressions
+from datetime import datetime # Library for getting current date and time
+from selenium import webdriver # Library for browser automation
+from selenium.webdriver.chrome.service import Service # Service class for Chrome driver
+import time # Library for time-related functions (like pauses)
+from selenium.webdriver.common.by import By # Class for locating elements by strategy
 
 # --- Configuration ---
-site_base_url = 'https://www.vals.ai' # Base URL of the website
-url_main_benchmarks_page = site_base_url + '/benchmarks' # URL of the main benchmarks listing page
-chromedriver_path = '/opt/chromedriver-linux64/chromedriver'
+site_base_url = 'https://www.vals.ai' # Base URL of the target website
+url_main_benchmarks_page = site_base_url + '/benchmarks' # URL for the main benchmarks listing
+chromedriver_path = '/opt/chromedriver-linux64/chromedriver' # Path to the Chrome WebDriver executable
+
+# Initialize Selenium WebDriver service
 chrome_service = Service(executable_path=chromedriver_path)
+# Initialize WebDriver instance
 driver = webdriver.Chrome(service=chrome_service)
 
 # --- Access Main Benchmarks Page ---
-# Attempt to fetch the content of the main benchmarks page
+# Fetch the HTML content of the main benchmarks page using requests
 try:
     response = requests.get(url_main_benchmarks_page)
-    response.raise_for_status() # Check for bad status codes (400s or 500s) and raise an exception
-    html_content_main_page = response.text # Get the HTML content as text
+    # Raise an exception for bad status codes (4xx or 5xx)
+    response.raise_for_status()
+    # Get the page content as text
+    html_content_main_page = response.text
+# Handle potential request errors (network issues, bad URL, etc.)
 except requests.exceptions.RequestException as e:
-    # If there's an error accessing the page, print the error and exit
     print(f"Error accessing the main page: {e}")
-    exit()
+    exit() # Exit the script if the main page cannot be accessed
 
 # --- Parse Main Page and Collect Benchmark Links ---
-# Parse the HTML content of the main page using BeautifulSoup
+# Parse the HTML content using BeautifulSoup
 soup_main_page = BeautifulSoup(html_content_main_page, 'html.parser')
 
-# Set to store unique benchmark URLs
+# Use a set to store unique benchmark URLs found on the main page
 benchmark_links = set()
 
-# Find all <a> tags with an href attribute on the main page
+# Find all anchor tags (<a>) with an href attribute
 all_links_on_main_page = soup_main_page.find_all('a', href=True)
 
-# Iterate through all found links
+# Iterate through each found link
 for link in all_links_on_main_page:
-    href = link['href'] # Get the value of the href attribute
+    href = link['href'] # Get the link's URL
 
-    # Check if the href is a relative path starting with '/benchmarks/'
-    # and is not the main benchmarks page itself
+    # Check if the link is a relative path pointing to a specific benchmark page
     if href and href.startswith('/benchmarks/') and href.strip('/') != 'benchmarks':
-        full_url = site_base_url + href # Construct the absolute URL
+        # Construct the full absolute URL
+        full_url = site_base_url + href
         benchmark_links.add(full_url) # Add the full URL to the set
 
-    # Also check for absolute links starting with the main page URL prefix
-    # This handles cases where links might already be absolute
+    # Also check for absolute links that start with the main benchmarks URL prefix
     elif href and href.startswith(url_main_benchmarks_page + '/') and href.strip('/') != url_main_benchmarks_page.strip('/'):
         benchmark_links.add(href) # Add the absolute URL to the set
 
-# Convert the set of links to a list
+# Convert the set of unique links to a list for ordered processing
 list_benchmark_links = list(benchmark_links)
 
-# Print the collected benchmark links
+# Print the total number of unique benchmark links found
 print(f"Found {len(list_benchmark_links)} benchmark links:")
+# Print each collected link
 for link in list_benchmark_links:
     print(link)
 
 print("-" * 20)
 
 # --- Data Extraction from Individual Benchmark Pages ---
-# List to store all extracted model data from all benchmarks
+# List to store extracted data for all models across all benchmarks
 all_benchmark_data = []
 
 # Loop through each collected benchmark URL
 for benchmark_url_full in list_benchmark_links:
     print(f"\nProcessing benchmark page: {benchmark_url_full}")
 
-    # Attempt to fetch the content of the current benchmark page
+    # Use Selenium to access the page to handle potential dynamic content loading
     try:
         driver.get(benchmark_url_full)
-        time.sleep(3)
+        time.sleep(3) # Wait for the page to load dynamic content
+
+        # Attempt to click the 'Accuracy' sort button if present
         try:
             accuracy_sort_btn= driver.find_element(By.XPATH, '//button[contains(text(), "Accuracy")]')
             accuracy_sort_btn.click()
-            time.sleep(1)
+            time.sleep(1) # Short pause after clicking
         except:
+            # If button not found, print a warning and continue without sorting
             print("Accuracy sort button not found, continuing without sorting.")
+
+        # Attempt to click the 'See More' button if present to load all entries
         try:
             see_more_btn = driver.find_element(By.XPATH, '//button[starts-with(text(), "See ")]')
             see_more_btn.click()
-            time.sleep(1) 
+            time.sleep(1) # Short pause after clicking
         except:
-            pass        
-        response = requests.get(benchmark_url_full)
-        response.raise_for_status() # Check for bad status codes
-        benchmark_html = driver.page_source
-    except requests.exceptions.RequestException as e:
-        # If error, print error and skip to the next URL
-        print(f"Error accessing {benchmark_url_full}: {e}")
-        continue
+            # If button not found, it might not exist or all entries are already visible
+            pass
 
-    # Parse the HTML content of the benchmark page
+        # Get the page source *after* potential dynamic content loading by Selenium
+        benchmark_html = driver.page_source
+        # Note: The original requests.get call here is redundant after using Selenium
+        # response = requests.get(benchmark_url_full)
+        # response.raise_for_status() # Check for bad status codes - This won't reflect dynamic content
+        # benchmark_html = response.text # This gets the initial HTML, not post-JS rendering
+
+    # Handle potential errors during page access with Selenium
+    except Exception as e: # Catching a general exception for Selenium/page loading issues
+        print(f"Error accessing {benchmark_url_full} with Selenium: {e}")
+        continue # Skip to the next URL if the current page fails to load
+
+    # Parse the dynamically loaded HTML content using BeautifulSoup
     benchmark_soup = BeautifulSoup(benchmark_html, 'html.parser')
 
-    # Extract the benchmark identifier from the URL (e.g., 'legal-qa')
+    # Extract the unique identifier for the current benchmark from the URL
     benchmark_id = benchmark_url_full.split('/')[-1]
-    if not benchmark_id: # Handle potential trailing slash in the URL
+    if not benchmark_id: # Handle cases with trailing slashes
         benchmark_id = benchmark_url_full.split('/')[-2]
-    # print(f"  Benchmark ID: {benchmark_id}") # Commented out to avoid double print
 
-    # List to hold data for models found on the current page
+    # List to hold data for models found on the current benchmark page
     models_on_this_page = []
 
-    # Find the main HTML element that contains the list of model entries.
-    # Based on inspection, each model entry is an <a> tag with class 'block',
-    # and these <a> tags are direct children of a <div>. We find the container
-    # by locating the first model <a> tag and getting its parent.
+    # Find the HTML container element that holds the list of model entries.
+    # This is typically the parent of the first model entry link.
     first_model_link = benchmark_soup.find('a', class_='block')
-
     model_entries_container = None
     if first_model_link:
-        model_entries_container = first_model_link.parent # The parent div containing all model links
+        model_entries_container = first_model_link.parent
 
-    # If the container is found
+    # If the container element is found
     if model_entries_container:
-        # Find all individual model entry <a> tags within the container
+        # Find all individual model entry links (<a> tags) within the container
         model_entries = model_entries_container.find_all('a', class_='block')
 
         print(f"  Found {len(model_entries)} model entries on {benchmark_id}.")
 
-        # Loop through each individual model entry link
+        # --- Extract Benchmark Group (Task Type) ---
+        benchmark_group = "N/A" # Default value if not found
+        try:
+            # Locate the element containing the 'Task Type:' label
+            task_type_p = benchmark_soup.find('p', text='Task Type:')
+            if task_type_p:
+                # Navigate up to the container holding the label and the value
+                task_type_container = task_type_p.parent
+                if task_type_container:
+                    # Find the specific element containing the group name (based on structure inspection)
+                    group_p_tag = task_type_container.find('p', class_='text-zinc-900 text-sm tracking-0.2')
+                    if group_p_tag:
+                        benchmark_group = group_p_tag.text.strip() # Extract and clean the text
+        except Exception as e:
+            # Handle potential errors during group extraction
+            print(f"  Error extracting benchmark group on {benchmark_url_full}: {e}")
+
+        # Print extracted benchmark details
+        print(f"  Benchmark Group: {benchmark_group}")
+        print(f"  Benchmark ID: {benchmark_id}")
+
+        # Loop through each individual model entry element found
         for model_link in model_entries:
             try:
-                # Find the <div> within the <a> tag that holds the structured data for the model row
-                # Using the specific class name identified from HTML inspection
+                # Find the div that structures the data for a single model row
                 data_div = model_link.find('div', class_='grid grid-cols-[2.5fr_1fr_1fr_1fr] py-3 bg-white border-b border-zinc-700 hover:bg-zinc-100 transition-all duration-150')
 
-                # If the data div is found
+                # If the data structure div is found
                 if data_div:
-                    # The data (Accuracy, Costs, Latency) are in direct <p> tags following the first <div>.
-                    # The first <div> contains the Rank, Company Logo, and Model Name.
-                    # Find the first column <div> that contains logo and model name
+                    # Find the first column div containing the company logo and model name
                     col1_div = data_div.find('div', class_='flex flex-row gap-2 pl-3')
 
-                    # Find all direct child <p> tags within the data_div (these hold Accuracy, Costs, Latency)
+                    # Find all direct paragraph tags (<p>) within the data_div (contain Accuracy, Costs, Latency)
                     p_tags = data_div.find_all('p', recursive=False)
 
-                    # Ensure we found the necessary elements before attempting extraction
+                    # Proceed only if the essential elements are found
                     if col1_div and len(p_tags) >= 3:
-                        # Extract Company Name from the src attribute of the <img> tag in the first column div
+                        # Extract Company Name from the image source within the first column
                         company_img_tag = col1_div.find('img')
-                        company_name = 'N/A' # Default value
+                        company_name = 'N/A'
                         if company_img_tag and company_img_tag.get('src'):
                             img_src = company_img_tag['src']
-                            # Extract the filename from the source path (e.g., 'OpenAI.svg' from '/Icons/OpenAI.svg')
+                            # Extract and format the company name from the image filename
                             filename = img_src.split('/')[-1]
-                            # Extract the company name from the filename (e.g., 'OpenAI' from 'OpenAI.svg')
                             company_name = filename.split('.')[0] if '.' in filename else filename
-                            # Clean up the name and format it (e.g., 'xAI' from 'xAI', 'Meta' from 'Meta-Llama')
                             company_name = company_name.replace('-Instruct', '').replace('-', ' ').strip().title()
-                            if company_name.lower() == 'xai': # Correct capitalization for xAI
+                            if company_name.lower() == 'xai':
                                 company_name = 'xAI'
 
-                        # Extract the Model Name from the specific <p> tag in the first column div
+                        # Extract the Model Name from its specific paragraph tag within the first column
                         model_name_tag = col1_div.find('p', class_='text-slate900 text-xs md:text-xs lg:text-sm gap-1 flex-row items-center justify-center tracking-0.2')
-                        model_name = model_name_tag.text.strip() if model_name_tag else 'N/A' # Extract text or use default
+                        model_name = model_name_tag.text.strip() if model_name_tag else 'N/A'
 
-
-                        # Extract Accuracy from the first direct <p> tag
+                        # Extract Accuracy from the first data paragraph tag
                         accuracy_tag = p_tags[0]
                         accuracy_text = accuracy_tag.get_text(strip=True) if accuracy_tag else ''
-                        # Use regex to find the percentage value, which is more reliable than just stripping text
+                        # Use regex to find and extract the percentage value
                         accuracy_match = re.search(r'\d+\.?\d*%', accuracy_text)
-                        accuracy = accuracy_match.group(0) if accuracy_match else accuracy_text # Use regex match or full text
-                        accuracy_number_string = accuracy.replace('%', '')
+                        accuracy_str = accuracy_match.group(0) if accuracy_match else accuracy_text
+                        accuracy_number_string = accuracy_str.replace('%', '')
+                        # Convert the extracted number string to a float
                         try:
                             accuracy = float(accuracy_number_string)
                         except ValueError:
-                            print(f"Warning: Could not convert '{accuracy_number_string}' to a number.")
-                            accuracy = None                       
+                            # Handle cases where conversion fails
+                            print(f"Warning: Could not convert '{accuracy_number_string}' to a number for accuracy.")
+                            accuracy = None
 
-                        # Extract Costs (Input/Output) from the second direct <p> tag
+                        # Extract Costs (Input/Output) from the second data paragraph tag
                         costs_tag = p_tags[1]
                         costs_text = costs_tag.text.strip() if costs_tag else 'N/A / N/A'
-                        # Split the text by '/' to separate input and output costs
+                        # Split the text to separate input and output costs
                         cost_parts = costs_text.split('/')
                         cost_input = cost_parts[0].strip() if len(cost_parts) > 0 else 'N/A'
                         cost_output = cost_parts[1].strip() if len(cost_parts) > 1 else 'N/A'
 
-                        # Extract Latency from the third direct <p> tag
+                        # Extract Latency from the third data paragraph tag
                         latency_tag = p_tags[2]
-                        latency = latency_tag.text.strip() if latency_tag else 'N/A' # Extract text or use default
-                        latency_number_string = latency.replace(' s', '')
+                        latency_text = latency_tag.text.strip() if latency_tag else 'N/A'
+                        latency_number_string = latency_text.replace(' s', '')
+                         # Convert the extracted number string to a float
                         try:
                             latency = float(latency_number_string)
                         except ValueError:
-                            print(f"Warning: Could not convert '{latency_number_string}' to a number.")
-                            latency = None   
+                            # Handle cases where conversion fails
+                            print(f"Warning: Could not convert '{latency_number_string}' to a number for latency.")
+                            latency = None
 
-                        # Create a dictionary for the current model's data
+                        # Compile the extracted data into a dictionary for the current model
                         model_data = {
-                            'benchmark': benchmark_id, # Include the benchmark identifier for context
+                            'benchmark': benchmark_id,
+                            'benchmark_group': benchmark_group,
                             'model': model_name,
                             'company': company_name,
                             'accuracy': accuracy,
@@ -204,20 +236,14 @@ for benchmark_url_full in list_benchmark_links:
                         # Add the model's data to the list for this page
                         models_on_this_page.append(model_data)
 
-                    # Optional: Print a warning if the expected structure isn't found for a model row
-                    # else:
-                    #      print(f"    Warning: Could not find expected structure within data_div for a model entry on {benchmark_url_full}")
-
-
+            # Catch any errors that occur during the processing of a single model entry
             except Exception as e:
-                # Catch any errors during the parsing of a single model entry
                 print(f"    Error parsing model entry on {benchmark_url_full}: {e}")
-                # Continue to the next model entry even if one fails
+                # Continue processing other model entries even if one fails
 
     # If the container for model entries was not found on the page
     else:
         print(f"  Could not find the model entries container on {benchmark_url_full}")
-
 
     # Add all collected model data from the current page to the main list
     all_benchmark_data.extend(models_on_this_page)
@@ -226,7 +252,7 @@ for benchmark_url_full in list_benchmark_links:
 print("\nFinished processing all benchmark pages.")
 print(f"Collected data for {len(all_benchmark_data)} model entries in total.")
 
-# Prepare the final data structure including a timestamp
+# Prepare the final data structure including a timestamp for when the data was collected
 data_with_timestamp = {
     'timestamp_utc': datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'), # Add current UTC timestamp
     'benchmarks': all_benchmark_data # Include the list of all extracted model data
@@ -235,16 +261,18 @@ data_with_timestamp = {
 # Define the output JSON filename
 json_filename = 'benchmarks_data.json'
 
-# Attempt to write the data to the JSON file
+# Attempt to write the collected data to a JSON file
 try:
     with open(json_filename, 'w', encoding='utf-8') as f:
-        # Dump the Python dictionary to a JSON file, ensuring non-ASCII chars are handled
-        # and formatting with indentation for readability
+        # Write the dictionary to a JSON file, ensuring proper encoding and formatting
         json.dump(data_with_timestamp, f, ensure_ascii=False, indent=4)
     print(f"Successfully saved data to {json_filename}")
+# Handle potential file writing errors
 except IOError as e:
-    # If there's an error writing the file, print the error
     print(f"Error saving data to {json_filename}: {e}")
 
 print("-" * 20)
 print("Script finished.")
+
+# Close the Selenium browser instance
+driver.quit()
