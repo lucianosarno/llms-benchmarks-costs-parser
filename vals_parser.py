@@ -3,10 +3,17 @@ from bs4 import BeautifulSoup # Used for parsing HTML content
 import json # Used for saving the extracted data into a JSON file
 import re # Used for regular expressions, specifically for cleaning the accuracy value
 from datetime import datetime # Used for adding a timestamp to the output data
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+import time
+from selenium.webdriver.common.by import By
 
 # --- Configuration ---
 site_base_url = 'https://www.vals.ai' # Base URL of the website
 url_main_benchmarks_page = site_base_url + '/benchmarks' # URL of the main benchmarks listing page
+chromedriver_path = '/opt/chromedriver-linux64/chromedriver'
+chrome_service = Service(executable_path=chromedriver_path)
+driver = webdriver.Chrome(service=chrome_service)
 
 # --- Access Main Benchmarks Page ---
 # Attempt to fetch the content of the main benchmarks page
@@ -64,9 +71,23 @@ for benchmark_url_full in list_benchmark_links:
 
     # Attempt to fetch the content of the current benchmark page
     try:
+        driver.get(benchmark_url_full)
+        time.sleep(3)
+        try:
+            accuracy_sort_btn= driver.find_element(By.XPATH, '//button[contains(text(), "Accuracy")]')
+            accuracy_sort_btn.click()
+            time.sleep(1)
+        except:
+            print("Accuracy sort button not found, continuing without sorting.")
+        try:
+            see_more_btn = driver.find_element(By.XPATH, '//button[starts-with(text(), "See ")]')
+            see_more_btn.click()
+            time.sleep(1) 
+        except:
+            pass        
         response = requests.get(benchmark_url_full)
         response.raise_for_status() # Check for bad status codes
-        benchmark_html = response.text # Get the HTML content
+        benchmark_html = driver.page_source
     except requests.exceptions.RequestException as e:
         # If error, print error and skip to the next URL
         print(f"Error accessing {benchmark_url_full}: {e}")
@@ -145,7 +166,12 @@ for benchmark_url_full in list_benchmark_links:
                         # Use regex to find the percentage value, which is more reliable than just stripping text
                         accuracy_match = re.search(r'\d+\.?\d*%', accuracy_text)
                         accuracy = accuracy_match.group(0) if accuracy_match else accuracy_text # Use regex match or full text
-
+                        accuracy_number_string = accuracy.replace('%', '')
+                        try:
+                            accuracy = float(accuracy_number_string)
+                        except ValueError:
+                            print(f"Warning: Could not convert '{accuracy_number_string}' to a number.")
+                            accuracy = None                       
 
                         # Extract Costs (Input/Output) from the second direct <p> tag
                         costs_tag = p_tags[1]
@@ -158,6 +184,12 @@ for benchmark_url_full in list_benchmark_links:
                         # Extract Latency from the third direct <p> tag
                         latency_tag = p_tags[2]
                         latency = latency_tag.text.strip() if latency_tag else 'N/A' # Extract text or use default
+                        latency_number_string = latency.replace(' s', '')
+                        try:
+                            latency = float(latency_number_string)
+                        except ValueError:
+                            print(f"Warning: Could not convert '{latency_number_string}' to a number.")
+                            latency = None   
 
                         # Create a dictionary for the current model's data
                         model_data = {
@@ -196,7 +228,7 @@ print(f"Collected data for {len(all_benchmark_data)} model entries in total.")
 
 # Prepare the final data structure including a timestamp
 data_with_timestamp = {
-    'timestamp_utc': datetime.utcnow().isoformat(), # Add current UTC timestamp
+    'timestamp_utc': datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'), # Add current UTC timestamp
     'benchmarks': all_benchmark_data # Include the list of all extracted model data
 }
 
