@@ -87,7 +87,7 @@ for benchmark_url_full in list_benchmark_links:
             pass        
         response = requests.get(benchmark_url_full)
         response.raise_for_status() # Check for bad status codes
-        benchmark_html = response.text # Get the HTML content
+        benchmark_html = driver.page_source
     except requests.exceptions.RequestException as e:
         # If error, print error and skip to the next URL
         print(f"Error accessing {benchmark_url_full}: {e}")
