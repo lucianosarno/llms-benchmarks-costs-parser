@@ -6,11 +6,14 @@ from datetime import datetime # Used for adding a timestamp to the output data
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 import time
+from selenium.webdriver.common.by import By
 
 # --- Configuration ---
 site_base_url = 'https://www.vals.ai' # Base URL of the website
 url_main_benchmarks_page = site_base_url + '/benchmarks' # URL of the main benchmarks listing page
-driver = webdriver.Chrome()
+chromedriver_path = '/opt/chromedriver-linux64/chromedriver'
+chrome_service = Service(executable_path=chromedriver_path)
+driver = webdriver.Chrome(service=chrome_service)
 
 # --- Access Main Benchmarks Page ---
 # Attempt to fetch the content of the main benchmarks page
@@ -77,7 +80,7 @@ for benchmark_url_full in list_benchmark_links:
         except:
             print("Accuracy sort button not found, continuing without sorting.")
         try:
-            see_more_btn = driver.find_element(By.XPATH, '//button[starts-with(text(), "see ")]')
+            see_more_btn = driver.find_element(By.XPATH, '//button[starts-with(text(), "See ")]')
             see_more_btn.click()
             time.sleep(1) 
         except:
