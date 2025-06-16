@@ -13,6 +13,7 @@ The scraped data is stored in a JSON file (`benchmarks_data.json`) in this repos
 
 *   Scrapes all available benchmark links from the main Vals.ai benchmarks page.
 *   Visits each benchmark page to extract detailed model data.
+*   Uses Selenium to dynamically load and capture all available benchmark entries on each page, ensuring comprehensive data collection beyond initial view limits.
 *   Parses Model Name, Company (from SVG icon filename), Accuracy, Cost Input, Cost Output, and Latency for each model.
 *   Stores the collected data in a structured JSON format.
 *   Includes a timestamp for when the data was last updated.
@@ -91,6 +92,10 @@ This chart aggregates data by provider, showing average costs across different b
 https://analytics.zoho.com/open-view/2732937000006459493
 This chart provides a detailed view of individual model performance and costs per benchmark.
 
+### LLM Performance Grouped by Benchmarks
+https://analytics.zoho.com/open-view/2732937000006462636
+This chart groups the data by the benchmark categories themselves (e.g., Legal QA, Coding, Reasoning), allowing comparison of how models perform on average within specific domains.
+
 ### Chart Filters and Cost Explanation
 
 Both embedded charts offer interactive filters to refine the data being displayed:
@@ -112,4 +117,4 @@ Contributing
 Contributions are welcome! If you find issues or have suggestions for improvements (e.g., adding more data points, improving parsing robustness), please open an issue or submit a pull request.
 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
