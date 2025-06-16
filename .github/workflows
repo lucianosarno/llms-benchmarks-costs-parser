@@ -1,0 +1,35 @@
+# This workflow will install Python dependencies and run a specific script daily
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/scheduling-a-workflow
+
+name: Daily Script Run (vals_parser.py)
+
+on:
+  # Runs at 00:00 UTC every day
+  schedule:
+    - cron: '0 0 * * *' # Learn more about cron syntax: https://crontab.guru/
+
+# You can keep permissions as read if your script only reads repo content
+# If it needs to write (e.g., commit changes), you might need different permissions
+permissions:
+  contents: read
+
+jobs:
+  run_script: # Changed job name to be more descriptive
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.10 # Or the version your script needs
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies # Install dependencies required by vals_parser.py
+      run: |
+        python -m pip install --upgrade pip
+        # Add any specific dependencies your script needs here
+        # e.g., pip install requests beautifulsoup4
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi # Keep this if your script uses requirements.txt
+    - name: Run vals_parser.py script # New step to run your script
+      run: |
+        python vals_parser.py
