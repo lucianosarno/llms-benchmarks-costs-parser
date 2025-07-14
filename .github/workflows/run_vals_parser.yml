@@ -11,7 +11,7 @@ on:
 # You can keep permissions as read if your script only reads repo content
 # If it needs to write (e.g., commit changes), you might need different permissions
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   run_script: # Changed job name to be more descriptive
